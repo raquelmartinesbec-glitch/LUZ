@@ -1,0 +1,141 @@
+# ============================================================
+# .gitignore para Proyecto LUZ - App de Bienestar
+# ============================================================
+
+# ============================================================
+# Python / Backend
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.venv/
+
+# ============================================================
+# Flutter / Frontend
+# ============================================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+.metadata
+
+# ============================================================
+# Bases de Datos (IMPORTANTE - No subir datos personales)
+# ============================================================
+*.db
+*.sqlite
+*.sqlite3
+luz_bienestar.db
+luz_test.db
+
+# ============================================================
+# Modelos Entrenados / Cache IA
+# ============================================================
+models/*.pkl
+models/*.h5
+models/*.pb
+models/*.pth
+cache/
+sentence-transformers-cache/
+.cache/
+
+# ============================================================
+# IDEs y Editores
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.iml
+*.ipr
+*.iws
+
+# ============================================================
+# Archivos de Configuración Sensibles
+# ============================================================
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets.json
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================================
+# Sistema Operativo
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Archivos de Respaldo
+# ============================================================
+*.bak
+*.backup
+*.tmp
+*.temp
+*~
+
+# ============================================================
+# Node Modules (si se añaden dependencias JS)
+# ============================================================
+node_modules/
+npm-debug.log
+
+# ============================================================
+# Archivos de Test (Opcionales)
+# ============================================================
+# Descomenta si no quieres subir archivos de test
+# test_*.py
+# *_test.dart
+
+# ============================================================
+# Datos de Investigación (Archivos grandes)
+# ============================================================
+# Si generas exports de investigación muy grandes:
+investigacion_exports/
+*.csv.gz
+*.json.gz

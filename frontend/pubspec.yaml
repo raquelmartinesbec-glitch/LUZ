@@ -1,0 +1,55 @@
+name: luz_bienestar
+description: App de Bienestar Interactiva - Estilo Boho chic zen
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Gestión de estado
+  flutter_riverpod: ^2.4.0
+  
+  # Iconos y fuentes
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  
+  # Animaciones
+  lottie: ^2.7.0
+  flutter_animate: ^4.2.0
+  
+  # Base de datos local
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  
+  # HTTP y API
+  http: ^1.1.0
+  dio: ^5.4.0
+  
+  # Utilidades
+  intl: ^0.18.1
+  shared_preferences: ^2.2.2
+  uuid: ^4.2.1
+  
+  # Gráficos y visualización
+  fl_chart: ^0.65.0
+  
+  # Gestos y efectos visuales
+  flutter_svg: ^2.0.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  # Recursos (agregar assets más adelante)
+  assets:
+    - assets/images/
+    - assets/avatars/
+    - assets/animations/
