@@ -5,6 +5,7 @@ import '../providers/usuario_provider.dart';
 import '../widgets/liberacion_emociones_widget.dart';
 import '../widgets/gratitud_widget.dart';
 import '../widgets/destello_widget.dart';
+import '../widgets/destello_fullscreen_widget.dart';
 
 /// Pantalla del Alma Board
 /// Liberación de emociones tóxicas y microacciones de gratitud/creatividad
@@ -46,12 +47,12 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
 
   @override
   Widget build(BuildContext context) {
-    final almaBoard = ref.watch(almaBoardProvider);
+    final almaBoardNotifier = ref.watch(almaBoardNotifierProvider);
     final destellos = ref.watch(destellosProvider);
 
-    if (almaBoard == null) {
+    if (almaBoardNotifier == null) {
       return const Center(
-        child: Text('Selecciona un usuario para ver su Alma Board'),
+        child: Text('Cargando Alma Board...'),
       );
     }
 
@@ -96,12 +97,12 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
                 titulo: '🌊 Libera tus emociones',
                 descripcion: 'Arrastra y suelta lo que no necesitas',
                 child: LiberacionEmocionesWidget(
-                  emocionesLiberadas: almaBoard.emocionesToxicasLiberadas,
+                  emocionesLiberadas: almaBoardNotifier.emocionesToxicasLiberadas,
                   onEmocionLiberada: (emocion) {
                     ref
                         .read(almaBoardNotifierProvider.notifier)
                         .liberarEmocionToxica(emocion);
-                    _mostrarDestello();
+                    _mostrarDestelloLiberacion();
                   },
                 ),
               ),
@@ -113,12 +114,12 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
                 titulo: '✨ Cultiva gratitud',
                 descripcion: 'Escribe, dibuja, agradece',
                 child: GratitudWidget(
-                  microaccionesGratitud: almaBoard.microaccionesGratitud,
+                  microaccionesGratitud: almaBoardNotifier.microaccionesGratitud,
                   onGratitudAgregada: (accion) {
                     ref
                         .read(almaBoardNotifierProvider.notifier)
                         .agregarGratitud(accion);
-                    _mostrarDestello();
+                    _mostrarDestelloGratitud();
                   },
                 ),
               ),
@@ -126,21 +127,11 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
               const SizedBox(height: 30),
 
               // Resumen de emociones liberadas
-              if (almaBoard.emocionesToxicasLiberadas.isNotEmpty)
+              if (almaBoardNotifier.emocionesToxicasLiberadas.isNotEmpty)
                 _construirResumen(
                   'Emociones liberadas',
-                  almaBoard.emocionesToxicasLiberadas,
+                  almaBoardNotifier.emocionesToxicasLiberadas,
                   TemaBoho.colorEstres,
-                ),
-
-              const SizedBox(height: 20),
-
-              // Resumen de gratitudes
-              if (almaBoard.microaccionesGratitud.isNotEmpty)
-                _construirResumen(
-                  'Momentos de gratitud',
-                  almaBoard.microaccionesGratitud,
-                  TemaBoho.colorMotivacion,
                 ),
 
               const SizedBox(height: 100), // Espacio para los destellos
@@ -259,24 +250,45 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
     );
   }
 
-  /// Muestra un destello de luz al completar una acción
-  void _mostrarDestello() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: const Row(
-          children: [
-            Icon(Icons.auto_awesome, color: Colors.white),
-            SizedBox(width: 8),
-            Text('¡Destello de luz activado! ✨'),
-          ],
-        ),
-        backgroundColor: TemaBoho.colorTerciario,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        duration: const Duration(seconds: 2),
-      ),
+  /// Muestra un destello de luz espectacular cuando se libera una emoción
+  void _mostrarDestelloLiberacion() {
+    _mostrarDestelloConColor(
+      color: TemaBoho.colorMotivacion,
+      mensaje: '¡Emoción tóxica liberada! 🌊✨',
+    );
+  }
+
+  /// Muestra un destello de luz espectacular cuando se agrega gratitud
+  void _mostrarDestelloGratitud() {
+    _mostrarDestelloConColor(
+      color: TemaBoho.colorTerciario,
+      mensaje: '¡Gratitud cultivada! 🙏✨',
+    );
+  }
+
+  /// Muestra un destello de luz espectacular que ocupa toda la pantalla
+  void _mostrarDestelloConColor({
+    required Color color,
+    required String mensaje,
+  }) {
+    // Mostrar overlay de destello de pantalla completa
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.transparent,
+      builder: (BuildContext context) {
+        // Auto cerrar después de la animación
+        Future.delayed(const Duration(milliseconds: 2500), () {
+          if (Navigator.of(context).canPop()) {
+            Navigator.of(context).pop();
+          }
+        });
+
+        return DestelloFullScreenWidget(
+          color: color,
+          mensaje: mensaje,
+        );
+      },
     );
   }
 }

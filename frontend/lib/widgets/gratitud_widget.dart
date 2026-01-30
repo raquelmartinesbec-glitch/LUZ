@@ -5,50 +5,44 @@ import '../theme/tema_boho.dart';
 class GratitudWidget extends StatefulWidget {
   final List<String> microaccionesGratitud;
   final Function(String) onGratitudAgregada;
+  final Function(String)? onGratitudSeleccionada;
 
   const GratitudWidget({
     super.key,
     required this.microaccionesGratitud,
     required this.onGratitudAgregada,
+    this.onGratitudSeleccionada,
   });
 
   @override
   State<GratitudWidget> createState() => _GratitudWidgetState();
 }
 
-class _GratitudWidgetState extends State<GratitudWidget> {
+class _GratitudWidgetState extends State<GratitudWidget>
+    with TickerProviderStateMixin {
   final TextEditingController _gratitudController = TextEditingController();
-  
-  final List<Map<String, dynamic>> _sugerencias = [
-    {
-      'texto': 'Escribir 3 cosas por las que estoy agradecido/a',
-      'icono': Icons.edit,
-    },
-    {
-      'texto': 'Dibujar una idea creativa',
-      'icono': Icons.draw,
-    },
-    {
-      'texto': 'Meditación guiada',
-      'icono': Icons.self_improvement,
-    },
-    {
-      'texto': 'Escribir afirmaciones positivas',
-      'icono': Icons.favorite,
-    },
-    {
-      'texto': 'Crear una lista de logros',
-      'icono': Icons.emoji_events,
-    },
-    {
-      'texto': 'Conectar con la naturaleza',
-      'icono': Icons.nature_people,
-    },
-  ];
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.elasticOut,
+      ),
+    );
+  }
 
   @override
   void dispose() {
     _gratitudController.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -78,6 +72,9 @@ class _GratitudWidgetState extends State<GratitudWidget> {
                 if (_gratitudController.text.isNotEmpty) {
                   widget.onGratitudAgregada(_gratitudController.text);
                   _gratitudController.clear();
+                  _animationController.forward().then((_) {
+                    _animationController.reset();
+                  });
                 }
               },
             ),
@@ -86,127 +83,201 @@ class _GratitudWidgetState extends State<GratitudWidget> {
             if (value.isNotEmpty) {
               widget.onGratitudAgregada(value);
               _gratitudController.clear();
+              _animationController.forward().then((_) {
+                _animationController.reset();
+              });
             }
           },
         ),
 
-        const SizedBox(height: 20),
+        const SizedBox(height: 30),
 
-        // Sugerencias de microacciones
-        Text(
-          'Sugerencias:',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: TemaBoho.colorTexto.withOpacity(0.7),
+        // Mostrar gratitudes como burbujas
+        if (widget.microaccionesGratitud.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Tus momentos de gratitud:',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: TemaBoho.colorMotivacion,
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
-        ),
-        const SizedBox(height: 12),
-
-        // Grid de sugerencias
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.5,
+              const SizedBox(height: 16),
+              _construirBurbujasGratitud(),
+            ],
+          )
+        else
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: TemaBoho.colorTerciario.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: TemaBoho.colorTerciario.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.lightbulb_outline,
+                  color: TemaBoho.colorTerciario,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    'Escribe algo por lo que te sientes agradecido/a hoy',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: TemaBoho.colorTexto.withOpacity(0.7),
+                        ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          itemCount: _sugerencias.length,
-          itemBuilder: (context, index) {
-            final sugerencia = _sugerencias[index];
-            final yaAgregada = widget.microaccionesGratitud
-                .contains(sugerencia['texto']);
-            
-            return _construirTarjetaSugerencia(
-              sugerencia['texto'],
-              sugerencia['icono'],
-              yaAgregada,
-            );
-          },
-        ),
       ],
     );
   }
 
-  /// Construye una tarjeta de sugerencia de gratitud
-  Widget _construirTarjetaSugerencia(
-    String texto,
-    IconData icono,
-    bool agregada,
-  ) {
+  /// Construye las burbujas de gratitud
+  Widget _construirBurbujasGratitud() {
+    return AnimatedBuilder(
+      animation: _scaleAnimation,
+      builder: (context, child) {
+        return Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: widget.microaccionesGratitud.asMap().entries.map((entry) {
+            final index = entry.key;
+            final gratitud = entry.value;
+            
+            return Transform.scale(
+              scale: index == widget.microaccionesGratitud.length - 1 
+                  ? _scaleAnimation.value == 0 ? 1.0 : _scaleAnimation.value
+                  : 1.0,
+              child: _construirBurbujaGratitud(gratitud, index),
+            );
+          }).toList(),
+        );
+      },
+    );
+  }
+
+  /// Construye una burbuja individual de gratitud
+  Widget _construirBurbujaGratitud(String gratitud, int index) {
+    // Colores alternados para las burbujas
+    final colores = [
+      TemaBoho.colorMotivacion,
+      TemaBoho.colorTerciario,
+      TemaBoho.colorSecundario,
+    ];
+    final color = colores[index % colores.length];
+    
+    // Texto corto para mostrar en la burbuja
+    final textoCorto = gratitud.length > 30 
+        ? '${gratitud.substring(0, 30)}...'
+        : gratitud;
+    
     return GestureDetector(
       onTap: () {
-        if (!agregada) {
-          widget.onGratitudAgregada(texto);
-        }
+        _mostrarGratitudCompleta(gratitud);
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        padding: const EdgeInsets.all(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          gradient: agregada
-              ? LinearGradient(
-                  colors: [
-                    TemaBoho.colorMotivacion.withOpacity(0.3),
-                    TemaBoho.colorMotivacion.withOpacity(0.1),
-                  ],
-                )
-              : LinearGradient(
-                  colors: [
-                    TemaBoho.colorTerciario.withOpacity(0.2),
-                    TemaBoho.colorTerciario.withOpacity(0.05),
-                  ],
-                ),
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(
-            color: agregada
-                ? TemaBoho.colorMotivacion.withOpacity(0.5)
-                : TemaBoho.colorTerciario.withOpacity(0.5),
-            width: 1.5,
+          gradient: LinearGradient(
+            colors: [
+              color.withOpacity(0.8),
+              color.withOpacity(0.6),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          boxShadow: agregada
-              ? [
-                  BoxShadow(
-                    color: TemaBoho.colorMotivacion.withOpacity(0.3),
-                    blurRadius: 12,
-                    offset: const Offset(0, 4),
-                  ),
-                ]
-              : [
-                  BoxShadow(
-                    color: TemaBoho.colorTerciario.withOpacity(0.2),
-                    blurRadius: 8,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(0.3),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
-              agregada ? Icons.check_circle : icono,
-              color: agregada
-                  ? TemaBoho.colorMotivacion
-                  : TemaBoho.colorTerciario,
-              size: 32,
+              Icons.favorite,
+              color: Colors.white,
+              size: 16,
             ),
-            const SizedBox(height: 8),
-            Text(
-              texto,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: agregada
-                        ? TemaBoho.colorMotivacion
-                        : TemaBoho.colorTexto,
-                    fontSize: 11,
-                    height: 1.3,
-                  ),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
+            const SizedBox(width: 8),
+            Flexible(
+              child: Text(
+                textoCorto,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  /// Muestra el texto completo de gratitud en un diálogo
+  void _mostrarGratitudCompleta(String gratitud) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: Row(
+            children: [
+              const Icon(
+                Icons.auto_awesome,
+                color: TemaBoho.colorMotivacion,
+              ),
+              const SizedBox(width: 8),
+              const Text('Momento de Gratitud'),
+            ],
+          ),
+          content: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  TemaBoho.colorMotivacion.withOpacity(0.1),
+                  TemaBoho.colorTerciario.withOpacity(0.1),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Text(
+              gratitud,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: TemaBoho.colorTexto,
+                    height: 1.5,
+                  ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(
+                'Cerrar',
+                style: TextStyle(color: TemaBoho.colorMotivacion),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

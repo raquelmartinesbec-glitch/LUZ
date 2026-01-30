@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/usuario_provider.dart';
+import '../providers/analisis_ia_provider.dart';
 import '../theme/tema_boho.dart';
 
 /// Widget para seleccionar entre los usuarios ficticios
@@ -78,11 +79,14 @@ class SelectorUsuario extends ConsumerWidget {
               );
               ref.read(usuarioActualProvider.notifier).state = nuevoUsuario;
               
-              // Actualizar también el moodmap y alma board
+              // Actualizar también el moodmap y alma board tradicionales
               ref.read(moodmapProvider.notifier).state = nuevoUsuario.moodmap;
               ref.read(almaBoardProvider.notifier).state = nuevoUsuario.almaBoard;
               ref.read(microaccionesProvider.notifier).state = nuevoUsuario.microacciones;
               ref.read(destellosProvider.notifier).state = nuevoUsuario.destellos;
+              
+              // Actualizar MoodMap con IA
+              ref.read(moodmapConIAProvider.notifier).establecerUsuario(nuevoUsuario);
             }
           },
         ),

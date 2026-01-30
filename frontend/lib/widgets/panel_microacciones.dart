@@ -1,52 +1,91 @@
 import 'package:flutter/material.dart';
 import '../theme/tema_boho.dart';
 
-/// Panel de microacciones adaptativas
-/// Sugiere acciones según el estado emocional del usuario
-class PanelMicroacciones extends StatelessWidget {
-  final Function(String) onMicroaccionSeleccionada;
+/// Panel de Natural Chemicals
+/// Químicos naturales para el bienestar emocional
+class PanelMicroacciones extends StatefulWidget {
+  final Function(Map<String, dynamic>) onNaturalChemicalCompletado;
 
   const PanelMicroacciones({
     super.key,
-    required this.onMicroaccionSeleccionada,
+    required this.onNaturalChemicalCompletado,
   });
 
-  // Lista de microacciones disponibles
-  static const List<Map<String, dynamic>> microacciones = [
+  @override
+  State<PanelMicroacciones> createState() => _PanelMicroaccionesState();
+}
+
+class _PanelMicroaccionesState extends State<PanelMicroacciones> {
+  final Map<String, bool> _expandido = {};
+  final Map<String, int> _intensidad = {};
+  final Map<String, TextEditingController> _controladores = {};
+
+  // Lista de Natural Chemicals disponibles
+  static const List<Map<String, dynamic>> naturalChemicals = [
     {
-      'nombre': 'calmarse',
-      'titulo': 'Calmar la mente',
-      'descripcion': 'Respiración consciente y meditación',
+      'nombre': 'serotonina',
+      'titulo': 'Elevar Serotonina',
+      'descripcion': 'Químico de la felicidad y bienestar',
+      'icono': Icons.sunny,
+      'color': TemaBoho.colorFelicidad,
+      'actividades': ['Caminar al sol', 'Meditar', 'Ejercicio suave', 'Música relajante']
+    },
+    {
+      'nombre': 'dopamina',
+      'titulo': 'Liberar Dopamina',
+      'descripcion': 'Neurotransmisor de la motivación',
+      'icono': Icons.rocket_launch,
+      'color': TemaBoho.colorMotivacion,
+      'actividades': ['Completar tareas', 'Logros pequeños', 'Ejercicio', 'Nuevas experiencias']
+    },
+    {
+      'nombre': 'endorfinas',
+      'titulo': 'Producir Endorfinas',
+      'descripcion': 'Analgésicos naturales del cuerpo',
       'icono': Icons.spa,
       'color': TemaBoho.colorCalma,
+      'actividades': ['Ejercicio intenso', 'Risa', 'Chocolate negro', 'Abrazo largo']
     },
     {
-      'nombre': 'animarse',
-      'titulo': 'Animar el espíritu',
-      'descripcion': 'Música y movimiento suave',
-      'icono': Icons.music_note,
-      'color': TemaBoho.colorFelicidad,
-    },
-    {
-      'nombre': 'activarse',
-      'titulo': 'Activar la energía',
-      'descripcion': 'Ejercicio y conexión',
-      'icono': Icons.directions_run,
-      'color': TemaBoho.colorMotivacion,
+      'nombre': 'oxitocina',
+      'titulo': 'Generar Oxitocina',
+      'descripcion': 'Hormona del amor y conexión',
+      'icono': Icons.favorite,
+      'color': Colors.pink.shade300,
+      'actividades': ['Abrazar', 'Tiempo con seres queridos', 'Actos de bondad', 'Contacto físico']
     },
   ];
 
   @override
+  void initState() {
+    super.initState();
+    for (var chemical in naturalChemicals) {
+      final nombre = chemical['nombre'] as String;
+      _expandido[nombre] = false;
+      _intensidad[nombre] = 3;
+      _controladores[nombre] = TextEditingController();
+    }
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _controladores.values) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
-      children: microacciones.map((micro) {
-        return _construirTarjetaMicroaccion(
+      children: naturalChemicals.map((chemical) {
+        final nombre = chemical['nombre'] as String;
+        return _construirTarjetaNaturalChemical(
           context,
-          nombre: micro['nombre'],
-          titulo: micro['titulo'],
-          descripcion: micro['descripcion'],
-          icono: micro['icono'],
-          color: micro['color'],
+          chemical: chemical,
+          expandido: _expandido[nombre] ?? false,
+          intensidad: _intensidad[nombre] ?? 3,
+          controller: _controladores[nombre]!,
         );
       }).toList(),
     );

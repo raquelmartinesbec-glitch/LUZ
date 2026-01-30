@@ -85,8 +85,12 @@ final moodmapNotifierProvider =
 class AlmaBoardNotifier extends StateNotifier<AlmaBoard> {
   AlmaBoardNotifier()
       : super(AlmaBoard(
-          emocionesToxicasLiberadas: [],
-          microaccionesGratitud: [],
+          emocionesToxicasLiberadas: ['Ansiedad por el trabajo'],
+          microaccionesGratitud: [
+            'Estoy agradecido/a por mi familia que siempre me apoya',
+            'Agradezco tener salud',
+            'Me siento afortunado/a por poder aprender cosas nuevas cada día'
+          ],
         ));
 
   /// Libera una emoción tóxica

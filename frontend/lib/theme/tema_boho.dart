@@ -72,7 +72,7 @@ class TemaBoho {
       ),
       
       // Elevación y sombras
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 8,
         shadowColor: Colors.black26,
         shape: RoundedRectangleBorder(

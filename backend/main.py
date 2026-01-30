@@ -8,6 +8,7 @@ from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
+from typing import Optional
 import uvicorn
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -262,6 +263,216 @@ async def enviar_feedback(feedback: Feedback, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+
+
+# ============================================================
+# ENDPOINTS - FEEDBACK Y ANÁLISIS PREDICTIVO
+# ============================================================
+
+@app.post("/feedback/procesar-actividad")
+async def procesar_actividad_completada(
+    data: dict,
+    db: Session = Depends(get_db)
+):
+    """Procesa el feedback de una actividad y calcula nuevo estado emocional"""
+    try:
+        tipo_actividad = data.get('tipo_actividad')
+        nombre_actividad = data.get('nombre_actividad')
+        intensidad = data.get('intensidad')
+        notas = data.get('notas')
+        usuario_id = data.get('usuario_id', 1)
+        estado_anterior = data.get('estado_anterior')
+        
+        # Calcular nuevo estado basado en la actividad
+        nuevo_estado = _calcular_impacto_actividad(
+            tipo_actividad, intensidad, estado_anterior
+        )
+        
+        # Guardar en base de datos
+        feedback_db = FeedbackDB(
+            usuario_id=usuario_id,
+            microaccion=f"{tipo_actividad}:{nombre_actividad}",
+            efectividad=min(intensidad, 5),
+            comodidad=5,  # Asumir comodidad alta
+            energia=intensidad,
+            comentario_texto=notas
+        )
+        db.add(feedback_db)
+        
+        # Actualizar MoodMap
+        moodmap_db = MoodMapDB(
+            usuario_id=usuario_id,
+            felicidad=nuevo_estado['felicidad'],
+            estres=nuevo_estado['estres'],
+            motivacion=nuevo_estado['motivacion']
+        )
+        db.add(moodmap_db)
+        
+        # Análisis predictivo para próximas sugerencias
+        from models.usuario import MoodMap
+        nuevo_moodmap = MoodMap(
+            felicidad=nuevo_estado['felicidad'],
+            estres=nuevo_estado['estres'],
+            motivacion=nuevo_estado['motivacion']
+        )
+        
+        proximas_sugerencias = ia_service.clasificar_estado(nuevo_moodmap)
+        
+        db.commit()
+        
+        return {
+            "nuevo_estado": nuevo_estado,
+            "mejora": {
+                "felicidad": nuevo_estado['felicidad'] - estado_anterior['felicidad'],
+                "estres": nuevo_estado['estres'] - estado_anterior['estres'],
+                "motivacion": nuevo_estado['motivacion'] - estado_anterior['motivacion']
+            },
+            "proximas_sugerencias": proximas_sugerencias,
+            "mensaje": f"¡Excelente! Has activado {tipo_actividad} con intensidad {intensidad}/5"
+        }
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+
+
+@app.post("/ia/sugerencias-personalizadas")
+async def obtener_sugerencias_personalizadas(
+    data: dict,
+    db: Session = Depends(get_db)
+):
+    """Obtiene sugerencias personalizadas basadas en IA y patrones de comportamiento"""
+    try:
+        usuario_id = data.get('usuario_id', 1)
+        estado_actual = data.get('estado_actual')
+        
+        # Obtener historial del usuario
+        historial = db.query(HistoricoInteraccionDB).filter(
+            HistoricoInteraccionDB.usuario_id == usuario_id
+        ).order_by(HistoricoInteraccionDB.timestamp.desc()).limit(10).all()
+        
+        from models.usuario import MoodMap
+        moodmap = MoodMap(
+            felicidad=estado_actual['felicidad'],
+            estres=estado_actual['estres'],
+            motivacion=estado_actual['motivacion']
+        )
+        
+        # Análisis con IA
+        clasificacion = ia_service.clasificar_estado(moodmap)
+        embedding = ia_service.obtener_embedding_emocional(moodmap)
+        cluster_id = ia_service.obtener_cluster(moodmap)
+        
+        # RL para microacciones adaptativas
+        microaccion_rl = rl_service.obtener_microaccion_adaptativa(moodmap)
+        
+        # Convertir a natural chemicals
+        natural_chemicals_sugeridos = _convertir_a_natural_chemicals(
+            microaccion_rl['microaccion'], estado_actual
+        )
+        
+        return {
+            "sugerencias": natural_chemicals_sugeridos,
+            "razonamiento": {
+                "clasificacion_ia": clasificacion,
+                "cluster_emocional": cluster_id,
+                "patron_detectado": microaccion_rl['razonamiento']
+            },
+            "personalizacion": {
+                "basado_en_historial": len(historial) > 0,
+                "actividades_previas": len(historial)
+            }
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+
+
+def _calcular_impacto_actividad(tipo_actividad: str, intensidad: int, estado_anterior: dict) -> dict:
+    """Calcula el impacto de una actividad en el estado emocional"""
+    
+    # Factores de impacto por tipo de natural chemical
+    impactos = {
+        'serotonina': {'felicidad': 0.15, 'estres': -0.10, 'motivacion': 0.05},
+        'dopamina': {'felicidad': 0.10, 'estres': -0.05, 'motivacion': 0.20},
+        'endorfinas': {'felicidad': 0.12, 'estres': -0.15, 'motivacion': 0.08},
+        'oxitocina': {'felicidad': 0.18, 'estres': -0.12, 'motivacion': 0.10},
+    }
+    
+    impacto = impactos.get(tipo_actividad, {
+        'felicidad': 0.05, 'estres': -0.05, 'motivacion': 0.05
+    })
+    
+    # Multiplicar por intensidad normalizada
+    factor = intensidad / 5.0
+    
+    return {
+        'felicidad': max(0, min(1, estado_anterior['felicidad'] + impacto['felicidad'] * factor)),
+        'estres': max(0, min(1, estado_anterior['estres'] + impacto['estres'] * factor)),
+        'motivacion': max(0, min(1, estado_anterior['motivacion'] + impacto['motivacion'] * factor))
+    }
+
+
+def _convertir_a_natural_chemicals(microaccion: str, estado_actual: dict) -> list:
+    """Convierte microacciones a natural chemicals recomendados"""
+    
+    sugerencias = []
+    
+    # Análisis basado en microacción RL
+    if microaccion in ['calmarse', 'meditar']:
+        sugerencias.extend(['serotonina', 'endorfinas'])
+    elif microaccion in ['animarse', 'motivarse']:
+        sugerencias.extend(['dopamina', 'serotonina'])
+    elif microaccion in ['activarse', 'ejercitarse']:
+        sugerencias.extend(['dopamina', 'endorfinas'])
+    elif microaccion in ['conectarse', 'socializar']:
+        sugerencias.extend(['oxitocina'])
+    
+    # Análisis basado en estado actual
+    if estado_actual.get('estres', 0) > 0.7:
+        sugerencias.append('endorfinas')
+    
+    if estado_actual.get('motivacion', 0) < 0.4:
+        sugerencias.append('dopamina')
+        
+    if estado_actual.get('felicidad', 0) < 0.5:
+        sugerencias.append('serotonina')
+    
+    # Crear respuesta estructurada
+    chemicals_info = []
+    for chemical in list(set(sugerencias)):  # Eliminar duplicados
+        chemicals_info.append({
+            'tipo': chemical,
+            'razon': _obtener_razon_sugerencia(chemical, estado_actual),
+            'prioridad': _calcular_prioridad(chemical, estado_actual)
+        })
+    
+    # Ordenar por prioridad
+    chemicals_info.sort(key=lambda x: x['prioridad'], reverse=True)
+    
+    return chemicals_info
+
+
+def _obtener_razon_sugerencia(chemical: str, estado: dict) -> str:
+    """Obtiene la razón por la cual se sugiere un chemical específico"""
+    razones = {
+        'serotonina': f"Tu felicidad está en {estado.get('felicidad', 0):.1%}. La serotonina puede mejorar tu bienestar general.",
+        'dopamina': f"Tu motivación está en {estado.get('motivacion', 0):.1%}. La dopamina te ayudará a sentirte más motivado.",
+        'endorfinas': f"Tu estrés está en {estado.get('estres', 0):.1%}. Las endorfinas son perfectas para reducir el estrés.",
+        'oxitocina': "La oxitocina fortalece las conexiones sociales y mejora tu estado de ánimo general."
+    }
+    return razones.get(chemical, "Recomendado para tu bienestar general.")
+
+
+def _calcular_prioridad(chemical: str, estado: dict) -> float:
+    """Calcula la prioridad de un chemical basado en el estado actual"""
+    prioridades = {
+        'serotonina': (1 - estado.get('felicidad', 0.5)) * 0.8,
+        'dopamina': (1 - estado.get('motivacion', 0.5)) * 0.9,
+        'endorfinas': estado.get('estres', 0.5) * 1.0,
+        'oxitocina': 0.6  # Prioridad base
+    }
+    return prioridades.get(chemical, 0.5)
 
 
 # ============================================================
