@@ -221,7 +221,7 @@ class _LiberacionEmocionesWidgetState
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  isDragging ? Icons.auto_awesome : Icons.cloud_upload,
+                  isDragging ? Icons.auto_awesome : Icons.stars,
                   color: isDragging
                       ? TemaBoho.colorMotivacion
                       : TemaBoho.colorAcento,
@@ -230,8 +230,8 @@ class _LiberacionEmocionesWidgetState
                 const SizedBox(height: 8),
                 Text(
                   isDragging
-                      ? '¡Suelta aquí para liberar!'
-                      : 'Arrastra una emoción aquí',
+                      ? '🌌 Liberando en el universo... ✨'
+                      : '🌟 Deja que la energía fluya al cosmos',
                   style: TextStyle(
                     color: isDragging
                         ? TemaBoho.colorMotivacion
@@ -242,7 +242,7 @@ class _LiberacionEmocionesWidgetState
                 if (isDragging) ...[
                   const SizedBox(height: 4),
                   Text(
-                    '✨ Dejar ir y fluir ✨',
+                    '🌠 La energía se transforma en el infinito 🌠',
                     style: TextStyle(
                       color: TemaBoho.colorMotivacion.withOpacity(0.8),
                       fontSize: 12,

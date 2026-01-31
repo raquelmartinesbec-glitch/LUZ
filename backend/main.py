@@ -1,7 +1,6 @@
 """
-Servidor principal FastAPI
-App de Bienestar Interactiva - Luz
-Con creación automática de tablas, limpieza periódica y archivado
+Servidor principal FastAPI - Luz App de Bienestar
+Detección automática de ML: usa TensorFlow si está disponible, sino mocks inteligentes
 """
 
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
@@ -29,29 +28,38 @@ from models.db_models import (
     EmocionLiberadaDB, GratitudDB, DestelloDB
 )
 
-# Importar servicios de IA
-from services.ia_service import IAService
-from services.rl_service import RLService
-from services.nlp_service import NLPService
+# DETECCIÓN INTELIGENTE DE SERVICIOS ML
+ML_SERVICES_AVAILABLE = False
+try:
+    from services.ia_service import IAService
+    from services.rl_service import RLService  
+    from services.nlp_service import NLPService
+    ML_SERVICES_AVAILABLE = True
+    logger.info("✅ Servicios ML completos cargados (TensorFlow disponible)")
+except ImportError as e:
+    logger.warning(f"⚠️ Servicios ML pesados no disponibles: {e}")
+    logger.info("🎭 Usando servicio ML con fallback automático")
+
+# Importar servicio ML con fallback (SIEMPRE disponible)
+from services.ml_service import ml_service
 
 # Importar utilidades
 from utils.db_utils import limpiar_por_antigüedad, optimizar_base_datos, obtener_estadisticas_db
 from utils.limpieza_periodica import ejecutar_limpieza_periodica, obtener_estimacion_espacio_liberado
 from utils.test_users import (
     crear_usuario_test, eliminar_usuario_test, 
-    eliminar_todos_usuarios_test, listar_usuarios_test,
-    verificar_es_usuario_test
+    listar_usuarios_test
 )
 
-# Scheduler global
+# Scheduler para tareas programadas
 scheduler = BackgroundScheduler()
 
 
 def tarea_limpieza_mensual():
-    """Tarea que se ejecuta cada mes para limpiar datos menos útiles"""
-    logger.info("\n🗓️  TAREA PROGRAMADA: Limpieza mensual automática")
-    db = next(get_db())
+    """Tarea que se ejecuta el día 1 de cada mes para limpieza"""
     try:
+        logger.info("🗓️ TAREA PROGRAMADA: Limpieza mensual automática")
+        db = next(get_db())
         resultado = ejecutar_limpieza_periodica(db)
         logger.info(f"✓ Limpieza mensual completada: {sum(resultado.values())} registros eliminados")
     except Exception as e:
@@ -65,11 +73,14 @@ def tarea_limpieza_mensual():
 async def lifespan(app: FastAPI):
     """Gestiona inicio y cierre del servidor"""
     # STARTUP
-    print("\n🌟 Iniciando Luz - Backend de Bienestar")
-    print("=" * 50)
+    from services.ml_service import USE_MOCK
+    ml_mode = "🎭 Mock ML" if USE_MOCK else "🤖 TensorFlow ML"
+    print(f"\n🌟 Iniciando Luz - Backend de Bienestar ({ml_mode})")
+    print("="*60)
     
     # Crear todas las tablas automáticamente
     crear_tablas()
+    print("✓ Tablas de base de datos creadas correctamente")
     
     # Iniciar scheduler de limpieza periódica
     scheduler.add_job(
@@ -79,22 +90,19 @@ async def lifespan(app: FastAPI):
         name='Limpieza mensual de datos menos útiles',
         replace_existing=True
     )
-    scheduler.start()
-    logger.info("✓ Scheduler iniciado: Limpieza automática cada mes (día 1 a las 3:00 AM)")
     
-    print("✓ Servidor listo")
-    print("\n💡 NOTA: Limpieza periódica ACTIVA")
-    print("   🗓️  Se ejecuta automáticamente el día 1 de cada mes")
-    print("   🧹 Elimina datos menos útiles (destellos viejos, duplicados, etc.)")
-    print("   📦 Los datos importantes se archivan antes de borrar")
-    print("=" * 50 + "\n")
+    scheduler.start()
+    print("✓ Scheduler iniciado")
+    print("✓ Servidor listo para recibir conexiones")
+    print("📡 API: http://localhost:8000")
+    print("📖 Docs: http://localhost:8000/docs")
     
     yield
     
     # SHUTDOWN
+    print("\n🔄 Cerrando servidor...")
     scheduler.shutdown()
-    logger.info("✓ Scheduler detenido")
-    print("\n👋 Cerrando servidor...")
+    print("✓ Scheduler detenido")
 
 
 # Crear aplicación FastAPI
@@ -114,10 +122,36 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Inicializar servicios de IA
-ia_service = IAService()
-rl_service = RLService()
-nlp_service = NLPService()
+# Inicializar servicios de IA (solo si están disponibles)
+if ML_SERVICES_AVAILABLE:
+    ia_service = IAService()
+    rl_service = RLService()
+    nlp_service = NLPService()
+    logger.info("✅ Servicios ML avanzados inicializados")
+else:
+    # Crear servicios de fallback simples
+    class MockIAService:
+        def clasificar_estado(self, moodmap): return "estado_neutro"
+        def obtener_embedding_emocional(self, moodmap): return [0.5, 0.5, 0.5]
+        def obtener_cluster(self, moodmap): return 1
+    
+    class MockRLService:
+        def obtener_microaccion_adaptativa(self, moodmap): return "respiracion_profunda"
+        def actualizar_politica(self, *args, **kwargs): pass
+        def obtener_estadisticas(self): return {"algoritmo": "mock", "precisión": 0.85}
+    
+    class MockNLPService:
+        def generar_frase_motivadora(self, *args, **kwargs): return "¡Tú puedes! 🌟"
+        def analizar_sentimiento(self, texto): return {"sentimiento": "neutro", "confianza": 0.8}
+        def analizar_emocion(self, texto): return {"intensidad": "media", "valencia": "neutro"}
+        def generar_frase_liberacion(self, emocion): return f"Libero {emocion} con amor y comprensión 💫"
+        def obtener_embeddings_texto(self, texto): return [0.5] * 10
+        def generar_frase_gratitud(self, texto): return "Gracias por este momento de gratitud 🙏"
+    
+    ia_service = MockIAService()
+    rl_service = MockRLService()
+    nlp_service = MockNLPService()
+    logger.info("🎭 Usando servicios ML de fallback (mocks)")
 
 
 # ============================================================
@@ -1038,17 +1072,136 @@ async def obtener_resumenes_semanales(
 
 
 # ============================================================
+# ENDPOINTS ML/IA (CON FALLBACK AUTOMÁTICO)
+# ============================================================
+
+# Import para endpoints ML
+from services.ml_service import USE_MOCK
+
+@app.post("/ml/predict-emotion")
+async def predecir_emocion(
+    texto: str,
+    valencia: float = 0.5,
+    activacion: float = 0.5,
+    control: float = 0.5
+):
+    """
+    Predecir emoción principal basada en texto y estado de ánimo.
+    Funciona con o sin TensorFlow instalado (fallback automático).
+    """
+    try:
+        mood_data = {
+            'valencia': valencia,
+            'activacion': activacion,
+            'control': control
+        }
+        
+        prediccion = ml_service.predict_emotion(texto, mood_data)
+        
+        return {
+            "success": True,
+            "data": prediccion,
+            "timestamp": datetime.now().isoformat(),
+            "ml_status": "mock" if USE_MOCK else "tensorflow"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error en predicción de emoción: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error procesando predicción: {e}"
+        )
+
+
+@app.post("/ml/microacciones")
+async def generar_microacciones(
+    usuario_id: int,
+    valencia: float = 0.5,
+    activacion: float = 0.5,
+    control: float = 0.5,
+    db: Session = Depends(get_db)
+):
+    """
+    Generar microacciones personalizadas basadas en el perfil del usuario y mood actual.
+    Funciona con o sin TensorFlow instalado.
+    """
+    try:
+        # Obtener perfil del usuario
+        usuario_db = db.query(UsuarioDB).filter(UsuarioDB.id == usuario_id).first()
+        if not usuario_db:
+            raise HTTPException(status_code=404, detail=f"Usuario {usuario_id} no encontrado")
+        
+        user_profile = {
+            'id': usuario_db.id,
+            'nombre': usuario_db.nombre,
+            'edad': usuario_db.edad,
+            'genero': usuario_db.genero
+        }
+        
+        current_mood = {
+            'valencia': valencia,
+            'activacion': activacion,
+            'control': control
+        }
+        
+        microacciones = ml_service.generate_microacciones(user_profile, current_mood)
+        
+        return {
+            "success": True,
+            "data": {
+                "usuario": user_profile,
+                "mood_input": current_mood,
+                "microacciones": microacciones,
+                "total_acciones": len(microacciones)
+            },
+            "timestamp": datetime.now().isoformat(),
+            "ml_status": "mock" if USE_MOCK else "tensorflow"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error generando microacciones: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error generando microacciones: {e}"
+        )
+
+
+@app.get("/ml/status")
+async def estado_ml():
+    """
+    Verificar estado del sistema ML/IA.
+    Útil para diagnosticar si TensorFlow está disponible o se usan mocks.
+    """
+    try:
+        return {
+            "ml_available": ml_service.ML_AVAILABLE,
+            "using_mock": USE_MOCK,
+            "ml_services_available": ML_SERVICES_AVAILABLE,
+            "autoencoder_loaded": ml_service.autoencoder is not None,
+            "emotion_classifier_loaded": ml_service.emotion_classifier is not None,
+            "timestamp": datetime.now().isoformat(),
+            "message": "🤖 ML real disponible" if not USE_MOCK else "🎭 Usando predicciones mock (TensorFlow no instalado)"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error verificando estado ML: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error verificando estado ML: {e}"
+        )
+
+
+# ============================================================
 # EJECUTAR SERVIDOR
 # ============================================================
 
 if __name__ == "__main__":
-    print("\n🌟 Luz - Backend de Bienestar")
-    print("📚 Docs: http://localhost:8000/docs\n")
-    
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
         port=8000,
-        reload=True,
+        reload=False,  # Desactivar reload para mayor estabilidad
         log_level="info"
     )

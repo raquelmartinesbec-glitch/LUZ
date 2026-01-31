@@ -94,8 +94,8 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
 
               // Sección de liberación de emociones tóxicas
               _construirSeccion(
-                titulo: '🌊 Libera tus emociones',
-                descripcion: 'Arrastra y suelta lo que no necesitas',
+                titulo: '� Libera en el universo',
+                descripcion: 'Deja que la energía se vaya y fluya en el cosmos',
                 child: LiberacionEmocionesWidget(
                   emocionesLiberadas: almaBoardNotifier.emocionesToxicasLiberadas,
                   onEmocionLiberada: (emocion) {

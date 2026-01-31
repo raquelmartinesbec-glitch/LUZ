@@ -1,0 +1,24 @@
+# Dependencias ML/IA opcionales para Luz - Bienestar Interactivo
+# Solo instalar si necesitas modelos locales de ML
+
+# IA y Machine Learning
+tensorflow>=2.14.0,<2.17.0  # Rango flexible para mejor compatibilidad
+scikit-learn==1.4.0
+sentence-transformers==2.3.1
+transformers==4.37.0
+
+# Análisis de datos y texto
+pandas==2.2.0
+numpy==1.26.3
+nltk==3.8.1
+spacy==3.7.2
+
+# Alternativas ligeras (descomentar si TensorFlow falla)
+# onnxruntime>=1.16.0  # Para modelos ONNX exportados
+# torch>=2.0.0         # PyTorch como alternativa a TensorFlow
+
+# Instalación:
+# pip install -r requirements-ml.txt
+# 
+# Si TensorFlow falla, prueba:
+# pip install onnxruntime torch

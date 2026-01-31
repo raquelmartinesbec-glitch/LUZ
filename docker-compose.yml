@@ -1,0 +1,58 @@
+# Docker Compose para Luz - App de Bienestar
+# Uso: docker-compose up --build
+version: '3.8'
+
+services:
+  # Backend con IA/ML completo (TensorFlow real)
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: luz-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data  # Persistir base de datos SQLite
+    environment:
+      - PYTHONPATH=/app
+      - DATABASE_URL=sqlite:///./data/luz_bienestar.db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - luz_network
+
+  # Base de datos (opcional - PostgreSQL para producción)
+  # postgres:
+  #   image: postgres:15
+  #   container_name: luz-postgres
+  #   environment:
+  #     POSTGRES_DB: luz_bienestar
+  #     POSTGRES_USER: luz_user
+  #     POSTGRES_PASSWORD: luz_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - luz_network
+
+# Volúmenes para persistencia
+volumes:
+  luz_data:
+    driver: local
+  # postgres_data:  # Descomenta si usas PostgreSQL
+
+# Red para comunicación entre contenedores
+networks:
+  luz_network:
+    driver: bridge
+
+# Perfiles de ejecución:
+# docker-compose up                    # Solo backend
+# docker-compose --profile dev up      # Backend + frontend dev
+# docker-compose --profile prod up     # Configuración producción
