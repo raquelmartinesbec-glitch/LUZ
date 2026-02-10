@@ -6,6 +6,7 @@ import '../providers/analisis_ia_provider.dart';
 import '../widgets/burbuja_emocion.dart';
 import '../widgets/panel_natural_chemicals.dart';
 import '../widgets/feedback_widget.dart';
+import '../widgets/recordatorio_seguimiento_simple.dart';
 import 'dart:math' as math;
 
 /// Pantalla del MoodMap Board
@@ -117,6 +118,11 @@ class _MoodMapScreenState extends ConsumerState<MoodMapScreen>
             ],
           ),
           const SizedBox(height: 30),
+
+          // Widget de recordatorios de seguimiento
+          RecordatorioSeguimientoWidget(
+            usuarioId: usuarioActual.id.toString(),
+          ),
 
           // Burbujas de emociones
           _construirBurbujasEmociones(moodmap),

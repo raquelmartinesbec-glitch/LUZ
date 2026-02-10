@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import '../theme/tema_boho.dart';
+import '../services/seguimiento_microacciones_service.dart';
+import '../models/usuario_model.dart';
 
 /// Panel de Natural Chemicals
 /// Químicos naturales para el bienestar emocional
 class PanelMicroacciones extends StatefulWidget {
   final Function(Map<String, dynamic>) onNaturalChemicalCompletado;
+  final String usuarioId;
+  final MoodMapData? moodmapActual;
 
   const PanelMicroacciones({
     super.key,
     required this.onNaturalChemicalCompletado,
+    required this.usuarioId,
+    this.moodmapActual,
   });
 
   @override
@@ -19,6 +25,7 @@ class _PanelMicroaccionesState extends State<PanelMicroacciones> {
   final Map<String, bool> _expandido = {};
   final Map<String, int> _intensidad = {};
   final Map<String, TextEditingController> _controladores = {};
+  final SeguimientoMicroaccionesService _seguimientoService = SeguimientoMicroaccionesService();
 
   // Lista de Natural Chemicals disponibles
   static const List<Map<String, dynamic>> naturalChemicals = [
@@ -190,5 +197,33 @@ class _PanelMicroaccionesState extends State<PanelMicroacciones> {
         ),
       ),
     );
+  }
+
+  /// Maneja la selección de una microacción
+  void onMicroaccionSeleccionada(String nombreMicroaccion) {
+    // Registrar para seguimiento posterior
+    if (widget.moodmapActual != null) {
+      _seguimientoService.registrarMicroaccion(
+        usuarioId: widget.usuarioId,
+        tipoMicroaccion: nombreMicroaccion,
+        moodmapPrevio: widget.moodmapActual!,
+        minutosEspera: 20, // Recordatorio en 20 minutos
+      );
+    }
+
+    // Mostrar confirmación simple
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Microacción registrada: $nombreMicroaccion'),
+        backgroundColor: TemaBoho.colorPrimario,
+      ),
+    );
+    
+    // Notificar al widget padre
+    widget.onNaturalChemicalCompletado({
+      'tipo': nombreMicroaccion,
+      'timestamp': DateTime.now().toIso8601String(),
+      'seguimiento_programado': true,
+    });
   }
 }

@@ -299,6 +299,74 @@ async def enviar_feedback(feedback: Feedback, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
 
+@app.post("/feedback/moodmap-post-microaccion")
+async def registrar_moodmap_post_microaccion(
+    data: dict,
+    db: Session = Depends(get_db)
+):
+    """
+    Registra el estado emocional DESPUÉS de realizar una microacción.
+    Busca el feedback pendiente y lo actualiza con el moodmap posterior.
+    """
+    try:
+        usuario_id = data.get('usuario_id')
+        microaccion = data.get('microaccion')
+        moodmap_posterior = data.get('moodmap_posterior')
+        
+        if not all([usuario_id, microaccion, moodmap_posterior]):
+            raise HTTPException(status_code=400, detail="Faltan datos requeridos")
+        
+        # Buscar el feedback más reciente de esta microacción sin moodmap_posterior
+        feedback_pendiente = db.query(FeedbackDB).filter(
+            FeedbackDB.usuario_id == usuario_id,
+            FeedbackDB.microaccion == microaccion,
+            FeedbackDB.moodmap_posterior.is_(None)
+        ).order_by(FeedbackDB.timestamp.desc()).first()
+        
+        if not feedback_pendiente:
+            raise HTTPException(status_code=404, detail="No se encontró feedback pendiente para esta microacción")
+        
+        # Actualizar con el moodmap posterior
+        feedback_pendiente.moodmap_posterior = moodmap_posterior
+        
+        # Calcular efectividad objetiva
+        moodmap_previo = feedback_pendiente.moodmap_previo
+        mejora_felicidad = moodmap_posterior['felicidad'] - moodmap_previo['felicidad']
+        mejora_estres = moodmap_previo['estres'] - moodmap_posterior['estres']  # Reducción es positiva
+        mejora_motivacion = moodmap_posterior['motivacion'] - moodmap_previo['motivacion']
+        efectividad_objetiva = (mejora_felicidad + mejora_estres + mejora_motivacion) / 3
+        
+        # Actualizar RL con datos reales
+        if ML_SERVICES_AVAILABLE:
+            from models.usuario import MoodMap
+            moodmap_prev_obj = MoodMap(**moodmap_previo)
+            moodmap_post_obj = MoodMap(**moodmap_posterior)
+            
+            rl_service.actualizar_politica(
+                microaccion=microaccion,
+                recompensa=efectividad_objetiva,
+                estado_previo=moodmap_prev_obj,
+                estado_nuevo=moodmap_post_obj
+            )
+        
+        db.commit()
+        
+        return {
+            "mensaje": "Estado post-microacción registrado ✨",
+            "efectividad_objetiva": round(efectividad_objetiva, 3),
+            "mejoras": {
+                "felicidad": round(mejora_felicidad, 3),
+                "estres": round(mejora_estres, 3),
+                "motivacion": round(mejora_motivacion, 3)
+            },
+            "rl_actualizado": ML_SERVICES_AVAILABLE
+        }
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+
+
 # ============================================================
 # ENDPOINTS - FEEDBACK Y ANÁLISIS PREDICTIVO
 # ============================================================

@@ -19,7 +19,9 @@ Estilo: Boho Chic Zen · Frontend: Flutter · Backend: FastAPI + IA/ML
 - 🌟 **Natural Chemicals:** Sistema revolucionario de químicos naturales (Serotonina, Dopamina, Endorfinas, Oxitocina)
 - 🎪 **Alma Board:** Libera emociones tóxicas con drag & drop + destellos espectaculares
 - 🤖 **IA Adaptativa:** 5 algoritmos que aprenden de ti (Random Forest + Neural Network + Q-Learning + NLP + Clustering)
+- � **Seguimiento Post-Microacción:** Sistema automático que mide efectividad real de las actividades
 - 📊 **Sistema Inteligente:** Archivado automático para investigación + limpieza periódica
+- ⏰ **Recordatorios Inteligentes:** Notificaciones para capturar estado emocional después de cada microacción
 
 ### 🏃‍♂️ Inicio Rápido (2 opciones)
 
