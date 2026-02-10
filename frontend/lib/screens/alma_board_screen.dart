@@ -52,7 +52,7 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
 
     if (almaBoardNotifier == null) {
       return const Center(
-        child: Text('Cargando Alma Board...'),
+        child: Text('Cargando Alma...'),
       );
     }
 
@@ -76,7 +76,7 @@ class _AlmaBoardScreenState extends ConsumerState<AlmaBoardScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Alma Board',
+                      'Alma',
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     const SizedBox(height: 8),

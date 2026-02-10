@@ -142,7 +142,7 @@ class _InicioScreenState extends ConsumerState<InicioScreen>
           ),
           Tab(
             icon: Icon(Icons.self_improvement),
-            text: 'Alma Board',
+            text: 'Alma',
           ),
         ],
       ),

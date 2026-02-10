@@ -1,0 +1,30 @@
+usuario_id,nombre,timestamp,dia,emocion
+1,Ana,2026-02-05T19:01:00,2,presión
+1,Ana,2026-02-05T21:08:00,2,ansiedad
+1,Ana,2026-02-05T20:36:00,2,frustración
+1,Ana,2026-02-06T20:42:00,3,cansancio
+1,Ana,2026-02-06T22:49:00,3,ansiedad
+1,Ana,2026-02-06T20:37:00,3,agobio
+1,Ana,2026-02-08T22:40:00,5,ansiedad
+1,Ana,2026-02-09T19:01:00,6,frustración
+1,Ana,2026-02-10T23:38:00,7,agobio
+1,Ana,2026-02-10T20:18:00,7,presión
+2,Carlos,2026-02-05T23:43:00,2,presión
+2,Carlos,2026-02-05T19:20:00,2,agotamiento
+2,Carlos,2026-02-05T22:22:00,2,presión
+2,Carlos,2026-02-07T20:29:00,4,sobrecarga
+2,Carlos,2026-02-07T20:54:00,4,sobrecarga
+2,Carlos,2026-02-08T20:24:00,5,irritabilidad
+2,Carlos,2026-02-08T23:43:00,5,estrés laboral
+2,Carlos,2026-02-09T21:09:00,6,agotamiento
+2,Carlos,2026-02-09T23:59:00,6,presión
+2,Carlos,2026-02-09T19:35:00,6,presión
+3,Luna,2026-02-06T20:30:00,3,dispersión
+3,Luna,2026-02-06T22:56:00,3,autocrítica
+3,Luna,2026-02-07T20:36:00,4,autocrítica
+3,Luna,2026-02-07T19:26:00,4,dispersión
+3,Luna,2026-02-08T21:07:00,5,autocrítica
+3,Luna,2026-02-08T19:49:00,5,dispersión
+3,Luna,2026-02-08T22:57:00,5,autocrítica
+3,Luna,2026-02-09T23:15:00,6,autocrítica
+3,Luna,2026-02-10T21:48:00,7,bloqueo creativo

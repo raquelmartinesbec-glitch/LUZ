@@ -1,0 +1,4 @@
+usuario_id,nombre,total_registros_moodmap,total_emociones_liberadas,total_gratitudes,total_feedbacks,felicidad_promedio,estres_promedio,motivacion_promedio,microaccion_mas_usada,usuario_id,nombre
+1,Ana,21,10,7,11,0.465,0.584,0.413,té caliente,1,Ana
+2,Carlos,20,10,6,10,0.398,0.663,0.505,baño relajante,2,Carlos
+3,Luna,20,9,10,12,0.645,0.286,0.682,arte/dibujo,3,Luna
