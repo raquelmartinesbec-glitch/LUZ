@@ -45,11 +45,17 @@ cd frontend && flutter pub get && flutter run
 
 ### 🧠 IA/ML en Acción
 
-- **Random Forest:** Clasifica estados emocionales (92.3% precisión)
-- **Autoencoder Neural:** Encuentra patrones ocultos emocionales
-- **Q-Learning:** Aprende qué actividades te funcionan mejor
-- **NLP Transformers:** Analiza tus textos y genera frases motivadoras
-- **Sistema Fallback:** Si no tienes TensorFlow, usa mocks inteligentes
+**4 Modelos Entrenados y Evaluados:**
+- **🙏 Gratitudes:** RandomForest, 23 muestras, 14 clases ⚠️ (Overfitting detectado - 100% accuracy)
+- **😤 Emociones Liberadas:** RandomForest, 40.7% accuracy ✅ (Rendimiento realista)
+- **🎭 MoodMaps:** 3 RandomForests paralelos, 42.5% accuracy promedio ✅ (Multi-dimensional)
+- **⚡ Microacciones:** KMeans Clustering, 3 clusters identificados ✅ (Exploración de patrones)
+
+**Características del Sistema:**
+- **Análisis Crítico Completo:** Evaluación técnica honesta de fortalezas y debilidades
+- **Sistema de Carga:** Utilidad unificada para cargar y usar todos los modelos
+- **Validación Robusta:** Métricas realistas, detección de overfitting
+- **Fallback Inteligente:** Mocks automáticos si TensorFlow no disponible
 
 ### 🎨 Demo con 3 Usuarios Ficticios
 
@@ -60,11 +66,14 @@ cd frontend && flutter pub get && flutter run
 ### 📊 Métricas del Proyecto
 
 - **Código:** 5,700+ líneas (2,500 Dart + 3,200 Python)
-- **IA:** 5 algoritmos especializados trabajando en conjunto
+- **IA/ML:** 4 modelos entrenados + sistema de evaluación crítica
+- **Modelos Guardados:** 13 archivos .pkl con metadatos y métricas
+- **Análisis Completos:** 4 notebooks Jupyter con análisis detallado
 - **BD:** 11 tablas (8 operativas + 3 archivo permanente)
 - **API:** 15+ endpoints documentados automáticamente
 - **UI:** 3 pantallas + 7 widgets especializados + animaciones avanzadas
 
+**Sistema ML Demo:** ✅ Modelos entrenados con datos sintéticos, evaluación crítica incluida  
 **¿Sin TensorFlow?** ✅ No problem! Sistema de fallback automático con mocks inteligentes  
 **¿Para Git?** ✅ Optimizado! Un comando Docker y funciona  
 **¿Para desarrollo?** ✅ Hot reload + documentación interactiva + tests separados
@@ -126,13 +135,14 @@ docker-compose up --build
 
 ### Backend (FastAPI + IA/ML)
 
-- ✅ **5 Algoritmos de IA/ML trabajando en conjunto**:
-  - **Random Forest:** Clasificación emocional (92.3% precisión)
-  - **Red Neuronal:** Embeddings latentes para patrones ocultos
-  - **Q-Learning:** Aprendizaje adaptativo de efectividad
-  - **NLP Transformers:** Análisis de texto y sentimientos
-  - **KMeans Clustering:** Agrupación de usuarios similares
+- ✅ **4 Modelos ML Entrenados y Evaluados**:
+  - **🙏 Gratitudes:** RandomForest (100% accuracy - overfitting detectado)
+  - **😤 Emociones Liberadas:** RandomForest (40.7% accuracy - realista)
+  - **🎭 MoodMaps:** 3 RandomForests paralelos (42.5% promedio - multi-dimensional)
+  - **⚡ Microacciones:** KMeans Clustering (3 clusters - exploración)
 
+- ✅ **Sistema de Evaluación Crítica:** Análisis técnico completo en notebook
+- ✅ **Carga Unificada de Modelos:** Utilidad para usar todos los modelos entrenados
 - ✅ **Base de datos automática:** 11 tablas SQLite auto-creadas
 - ✅ **Sistema de fallback:** Mocks inteligentes si TensorFlow no está disponible
 - ✅ **Archivado automático:** Datos históricos preservados para investigación
@@ -154,10 +164,12 @@ Animaciones: AnimationController, CustomPainter
 ```yaml
 Framework: FastAPI 0.109.0
 IA/ML: 
-  - TensorFlow 2.15.0
+  - TensorFlow 2.16.1
   - scikit-learn 1.4.0
-  - sentence-transformers 2.3.1
-Base de datos: SQLAlchemy 2.0.25 (SQLite/PostgreSQL)
+  - pandas 2.2.0
+  - joblib 1.5.3 (persistencia de modelos)
+Modelos Entrenados: 4 (Gratitudes, Emociones, MoodMaps, Microacciones)
+Base de datos: SQLAlchemy 1.4.54 (SQLite/PostgreSQL)
 Scheduler: APScheduler 3.10.4
 ```
 
@@ -178,6 +190,13 @@ LUZ/
 │   ├── services/           # 5 algoritmos IA
 │   ├── models/             # 11 tablas BD
 │   └── utils/              # Archivado + limpieza
+│
+├── datos_demo_luz/          # 🆕 Análisis ML Completo
+│   ├── *.csv               # Datos de entrenamiento (4 datasets)
+│   ├── analisis_*.ipynb    # 4 notebooks de análisis
+│   ├── modelos_entrenados/ # 13 archivos de modelos .pkl
+│   │   └── resumen_critico_modelos.ipynb  # Evaluación técnica
+│   └── cargar_modelos_completo.py  # Utilidad de carga
 ```
 
 ---
@@ -201,6 +220,46 @@ cd frontend && flutter pub get && flutter run
 ```
 
 **Documentación completa:** http://localhost:8000/docs
+
+---
+
+## 🤖 Sistema de Machine Learning
+
+### Modelos Entrenados Disponibles
+
+El proyecto incluye **4 modelos ML completamente entrenados** con datos sintéticos de demo:
+
+| Modelo | Tipo | Accuracy/Métrica | Estado | Archivo |
+|--------|------|------------------|--------|---------|
+| **🙏 Gratitudes** | RandomForest | 100% ⚠️ | Overfitting detectado | `modelo_prediccion_gratitudes.pkl` |
+| **😤 Emociones** | RandomForest | 40.7% ✅ | Rendimiento realista | `modelo_prediccion_emociones.pkl` |
+| **🎭 MoodMaps** | 3x RandomForest | 42.5% ✅ | Multi-dimensional | `modelos_prediccion_moodmaps.pkl` |
+| **⚡ Microacciones** | KMeans | 3 clusters ✅ | Exploración válida | `modelo_clustering_microacciones.pkl` |
+
+### Uso del Sistema ML
+
+```python
+# Cargar y usar todos los modelos
+from datos_demo_luz.cargar_modelos_completo import ModelosLUZ
+
+# Inicializar sistema
+modelos = ModelosLUZ()
+
+# Demo completo
+modelos.demo_completo()  # Muestra predicciones de todos los modelos
+
+# Uso individual
+prediccion_gratitud = modelos.predecir_gratitud(usuario=1, dia=5, hora=20)
+cluster_microaccion = modelos.clasificar_microaccion([0.5, -0.3, 0.8, 4.2, 3.8])
+```
+
+### Evaluación Crítica
+
+El proyecto incluye un **análisis técnico honesto** en:
+- 📊 `datos_demo_luz/modelos_entrenados/resumen_critico_modelos.ipynb`
+- 🎯 **Ranking de confiabilidad:** MoodMaps (🥇) > Emociones (🥈) > Microacciones (🥉) > Gratitudes (⚠️)
+- 🔍 **Identificación de problemas:** Overfitting en gratitudes, datasets pequeños
+- 💡 **Roadmap de mejoras:** Recomendaciones específicas para cada modelo
 
 ---
 
@@ -242,10 +301,13 @@ Este es un proyecto de prototipo educativo.
 ## 🙏 Agradecimientos
 
 Desarrollado con ❤️ usando:
-- Flutter & Dart
-- FastAPI & Python
-- TensorFlow & scikit-learn
-- Sentence Transformers
+- **Frontend:** Flutter & Dart
+- **Backend:** FastAPI & Python  
+- **Machine Learning:** TensorFlow, scikit-learn & pandas
+- **Análisis:** Jupyter Notebooks & matplotlib
+- **Persistencia:** joblib & pickle
+
+**Estado del proyecto:** ✅ **Completo con 4 modelos ML entrenados y evaluados**
 
 ---
 
