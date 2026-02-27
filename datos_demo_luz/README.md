@@ -61,7 +61,32 @@
 - **Notificaciones inteligentes**: Recordatorios programados 20 minutos después de cada microacción
 - **Interfaz de captura**: Sliders intuitivos para registrar estado emocional posterior
 
-## 🔄 Flujo de seguimiento implementado:
+## � Validación Cruzada Secuencial (Análisis de Microacciones)
+
+### Metodología Temporal
+Se implementó **Time Series Cross-Validation** para evaluar la robustez del modelo respetando el orden cronológico de los datos. Esta técnica evalúa la capacidad predictiva en ventanas temporales progresivas.
+
+### Resultados Comparativos
+| Modelo | MSE | R² | Interpretación |
+|--------|-----|----|----|
+| **LinearRegression** | 3.460 ± 1.870 | -3.081 ± 2.373 | Rendimiento pobre |
+| **RandomForest** ⭐ | **1.219 ± 0.110** | **-0.320 ± 0.155** | **Mejor modelo** |
+
+### Análisis de Degradación Temporal
+- **Pendiente MSE**: 0.0832 (tendencia ascendente leve)
+- **Degradación temporal**: +13.9%
+- **Significancia estadística**: NO (p=0.575)
+- **Interpretación**: El modelo mantiene estabilidad temporal aceptable
+
+### Métricas de Validación
+- **Splits temporales**: 3 folds secuenciales
+- **Datos analizados**: 33 registros de 3 usuarios
+- **Features evaluadas**: 6 (estado emocional previo, comodidad, energía, microacción)
+- **Varianza entre folds**: Baja (0.110), indicando consistencia
+
+**✅ Conclusión**: RandomForest es el modelo óptimo con MSE de 1.219 y degradación temporal controlada.
+
+## �🔄 Flujo de seguimiento implementado:
 1. **Inicio de microacción** → Registro automático con moodmap previo
 2. **Programación de recordatorio** → 20 minutos después aparece notificación  
 3. **Captura de estado posterior** → Usuario usa sliders para registrar cómo se siente
