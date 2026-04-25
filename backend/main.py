@@ -6,6 +6,7 @@ Detección automática de ML: usa TensorFlow si está disponible, sino mocks int
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from contextlib import asynccontextmanager
 from typing import Optional
 import uvicorn
@@ -175,7 +176,7 @@ async def root():
 async def verificar_salud(db: Session = Depends(get_db)):
     """Verifica estado del servidor y BD"""
     try:
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
         stats = obtener_estadisticas_db(db)
         
         return {

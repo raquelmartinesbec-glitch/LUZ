@@ -4,396 +4,331 @@
     "nombre": "Ana",
     "moodmaps": [
       {
-        "timestamp": "2026-02-04T12:26:00",
+        "timestamp": "2026-03-09T19:18:00",
         "dia": 1,
-        "felicidad": 0.47,
-        "estres": 0.44,
-        "motivacion": 0.48
+        "felicidad": 0.68,
+        "estres": 0.51,
+        "motivacion": 0.56
       },
       {
-        "timestamp": "2026-02-04T11:44:00",
+        "timestamp": "2026-03-09T17:26:00",
         "dia": 1,
-        "felicidad": 0.64,
+        "felicidad": 0.43,
         "estres": 0.54,
-        "motivacion": 0.23
+        "motivacion": 0.54
       },
       {
-        "timestamp": "2026-02-05T11:02:00",
-        "dia": 2,
-        "felicidad": 0.62,
-        "estres": 0.46,
-        "motivacion": 0.44
-      },
-      {
-        "timestamp": "2026-02-05T20:02:00",
-        "dia": 2,
-        "felicidad": 0.5,
-        "estres": 0.87,
-        "motivacion": 0.59
-      },
-      {
-        "timestamp": "2026-02-05T15:48:00",
-        "dia": 2,
+        "timestamp": "2026-03-09T09:36:00",
+        "dia": 1,
         "felicidad": 0.33,
-        "estres": 0.41,
-        "motivacion": 0.55
-      },
-      {
-        "timestamp": "2026-02-05T12:21:00",
-        "dia": 2,
-        "felicidad": 0.55,
-        "estres": 0.42,
-        "motivacion": 0.2
-      },
-      {
-        "timestamp": "2026-02-06T18:27:00",
-        "dia": 3,
-        "felicidad": 0.66,
-        "estres": 0.48,
-        "motivacion": 0.39
-      },
-      {
-        "timestamp": "2026-02-06T11:07:00",
-        "dia": 3,
-        "felicidad": 0.42,
-        "estres": 0.48,
-        "motivacion": 0.38
-      },
-      {
-        "timestamp": "2026-02-06T18:03:00",
-        "dia": 3,
-        "felicidad": 0.52,
-        "estres": 0.4,
-        "motivacion": 0.6
-      },
-      {
-        "timestamp": "2026-02-06T14:52:00",
-        "dia": 3,
-        "felicidad": 0.34,
-        "estres": 0.8,
+        "estres": 0.59,
         "motivacion": 0.47
       },
       {
-        "timestamp": "2026-02-07T16:12:00",
-        "dia": 4,
-        "felicidad": 0.31,
-        "estres": 0.72,
-        "motivacion": 0.32
+        "timestamp": "2026-03-09T14:45:00",
+        "dia": 1,
+        "felicidad": 0.55,
+        "estres": 0.9,
+        "motivacion": 0.53
       },
       {
-        "timestamp": "2026-02-07T20:02:00",
-        "dia": 4,
-        "felicidad": 0.3,
-        "estres": 0.43,
-        "motivacion": 0.38
-      },
-      {
-        "timestamp": "2026-02-07T08:07:00",
-        "dia": 4,
-        "felicidad": 0.43,
-        "estres": 0.45,
-        "motivacion": 0.55
-      },
-      {
-        "timestamp": "2026-02-07T14:22:00",
-        "dia": 4,
-        "felicidad": 0.35,
-        "estres": 0.67,
-        "motivacion": 0.57
-      },
-      {
-        "timestamp": "2026-02-08T22:03:00",
-        "dia": 5,
-        "felicidad": 0.61,
-        "estres": 0.76,
-        "motivacion": 0.2
-      },
-      {
-        "timestamp": "2026-02-08T14:13:00",
-        "dia": 5,
-        "felicidad": 0.5,
-        "estres": 0.42,
-        "motivacion": 0.38
-      },
-      {
-        "timestamp": "2026-02-08T14:32:00",
-        "dia": 5,
-        "felicidad": 0.38,
-        "estres": 0.83,
-        "motivacion": 0.3
-      },
-      {
-        "timestamp": "2026-02-09T14:49:00",
-        "dia": 6,
-        "felicidad": 0.37,
-        "estres": 0.74,
+        "timestamp": "2026-03-10T16:14:00",
+        "dia": 2,
+        "felicidad": 0.66,
+        "estres": 0.58,
         "motivacion": 0.35
       },
       {
-        "timestamp": "2026-02-09T17:31:00",
-        "dia": 6,
-        "felicidad": 0.55,
-        "estres": 0.6,
-        "motivacion": 0.44
+        "timestamp": "2026-03-10T21:57:00",
+        "dia": 2,
+        "felicidad": 0.56,
+        "estres": 0.56,
+        "motivacion": 0.54
       },
       {
-        "timestamp": "2026-02-10T17:25:00",
-        "dia": 7,
-        "felicidad": 0.49,
-        "estres": 0.54,
-        "motivacion": 0.45
-      },
-      {
-        "timestamp": "2026-02-10T11:29:00",
-        "dia": 7,
+        "timestamp": "2026-03-10T16:14:00",
+        "dia": 2,
         "felicidad": 0.42,
+        "estres": 0.69,
+        "motivacion": 0.32
+      },
+      {
+        "timestamp": "2026-03-10T21:14:00",
+        "dia": 2,
+        "felicidad": 0.63,
+        "estres": 0.72,
+        "motivacion": 0.58
+      },
+      {
+        "timestamp": "2026-03-11T17:01:00",
+        "dia": 3,
+        "felicidad": 0.65,
+        "estres": 0.63,
+        "motivacion": 0.49
+      },
+      {
+        "timestamp": "2026-03-11T21:42:00",
+        "dia": 3,
+        "felicidad": 0.6,
+        "estres": 0.79,
+        "motivacion": 0.24
+      },
+      {
+        "timestamp": "2026-03-12T14:40:00",
+        "dia": 4,
+        "felicidad": 0.55,
+        "estres": 0.45,
+        "motivacion": 0.42
+      },
+      {
+        "timestamp": "2026-03-12T14:34:00",
+        "dia": 4,
+        "felicidad": 0.31,
+        "estres": 0.68,
+        "motivacion": 0.56
+      },
+      {
+        "timestamp": "2026-03-13T15:45:00",
+        "dia": 5,
+        "felicidad": 0.42,
+        "estres": 0.89,
+        "motivacion": 0.33
+      },
+      {
+        "timestamp": "2026-03-13T14:11:00",
+        "dia": 5,
+        "felicidad": 0.47,
+        "estres": 0.52,
+        "motivacion": 0.21
+      },
+      {
+        "timestamp": "2026-03-13T16:10:00",
+        "dia": 5,
+        "felicidad": 0.47,
+        "estres": 0.64,
+        "motivacion": 0.2
+      },
+      {
+        "timestamp": "2026-03-13T10:48:00",
+        "dia": 5,
+        "felicidad": 0.36,
+        "estres": 0.84,
+        "motivacion": 0.3
+      },
+      {
+        "timestamp": "2026-03-14T12:38:00",
+        "dia": 6,
+        "felicidad": 0.48,
+        "estres": 0.73,
+        "motivacion": 0.29
+      },
+      {
+        "timestamp": "2026-03-14T11:28:00",
+        "dia": 6,
+        "felicidad": 0.4,
+        "estres": 0.85,
+        "motivacion": 0.51
+      },
+      {
+        "timestamp": "2026-03-15T11:55:00",
+        "dia": 7,
+        "felicidad": 0.55,
         "estres": 0.8,
-        "motivacion": 0.4
+        "motivacion": 0.29
+      },
+      {
+        "timestamp": "2026-03-15T08:27:00",
+        "dia": 7,
+        "felicidad": 0.52,
+        "estres": 0.48,
+        "motivacion": 0.25
       }
     ],
     "emociones_liberadas": [
       {
-        "timestamp": "2026-02-05T19:01:00",
-        "dia": 2,
-        "emocion": "presión"
-      },
-      {
-        "timestamp": "2026-02-05T21:08:00",
-        "dia": 2,
-        "emocion": "ansiedad"
-      },
-      {
-        "timestamp": "2026-02-05T20:36:00",
-        "dia": 2,
-        "emocion": "frustración"
-      },
-      {
-        "timestamp": "2026-02-06T20:42:00",
-        "dia": 3,
+        "timestamp": "2026-03-09T20:52:00",
+        "dia": 1,
         "emocion": "cansancio"
       },
       {
-        "timestamp": "2026-02-06T22:49:00",
-        "dia": 3,
-        "emocion": "ansiedad"
-      },
-      {
-        "timestamp": "2026-02-06T20:37:00",
-        "dia": 3,
-        "emocion": "agobio"
-      },
-      {
-        "timestamp": "2026-02-08T22:40:00",
-        "dia": 5,
-        "emocion": "ansiedad"
-      },
-      {
-        "timestamp": "2026-02-09T19:01:00",
-        "dia": 6,
+        "timestamp": "2026-03-10T19:09:00",
+        "dia": 2,
         "emocion": "frustración"
       },
       {
-        "timestamp": "2026-02-10T23:38:00",
-        "dia": 7,
-        "emocion": "agobio"
+        "timestamp": "2026-03-10T22:03:00",
+        "dia": 2,
+        "emocion": "frustración"
       },
       {
-        "timestamp": "2026-02-10T20:18:00",
-        "dia": 7,
-        "emocion": "presión"
+        "timestamp": "2026-03-10T19:51:00",
+        "dia": 2,
+        "emocion": "ansiedad"
+      },
+      {
+        "timestamp": "2026-03-14T23:43:00",
+        "dia": 6,
+        "emocion": "cansancio"
       }
     ],
     "gratitudes": [
       {
-        "timestamp": "2026-02-04T20:49:00",
-        "dia": 1,
+        "timestamp": "2026-03-13T22:34:00",
+        "dia": 5,
         "gratitud": "descanso"
       },
       {
-        "timestamp": "2026-02-04T23:54:00",
-        "dia": 1,
-        "gratitud": "aprobar examen"
-      },
-      {
-        "timestamp": "2026-02-06T21:18:00",
-        "dia": 3,
-        "gratitud": "música relajante"
-      },
-      {
-        "timestamp": "2026-02-06T23:11:00",
-        "dia": 3,
-        "gratitud": "aprobar examen"
-      },
-      {
-        "timestamp": "2026-02-07T22:12:00",
-        "dia": 4,
-        "gratitud": "aprobar examen"
-      },
-      {
-        "timestamp": "2026-02-09T20:18:00",
-        "dia": 6,
-        "gratitud": "descanso"
-      },
-      {
-        "timestamp": "2026-02-10T21:28:00",
-        "dia": 7,
+        "timestamp": "2026-03-13T22:37:00",
+        "dia": 5,
         "gratitud": "café matutino"
+      },
+      {
+        "timestamp": "2026-03-15T21:07:00",
+        "dia": 7,
+        "gratitud": "ayuda de amigos"
       }
     ],
     "feedbacks": [
       {
-        "timestamp": "2026-02-04T11:44:00",
+        "timestamp": "2026-03-09T09:36:00",
         "dia": 1,
-        "microaccion": "estiramientos",
-        "efectividad": 4,
-        "comodidad": 5,
-        "energia": 1,
-        "moodmap_previo": {
-          "felicidad": 0.64,
-          "estres": 0.54,
-          "motivacion": 0.23
-        }
-      },
-      {
-        "timestamp": "2026-02-05T11:02:00",
-        "dia": 2,
-        "microaccion": "música relajante",
-        "efectividad": 4,
+        "microaccion": "meditación",
+        "efectividad": 5,
         "comodidad": 4,
         "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.62,
-          "estres": 0.46,
-          "motivacion": 0.44
-        }
-      },
-      {
-        "timestamp": "2026-02-05T15:48:00",
-        "dia": 2,
-        "microaccion": "respiración profunda",
-        "efectividad": 5,
-        "comodidad": 3,
-        "energia": 4,
-        "moodmap_previo": {
           "felicidad": 0.33,
-          "estres": 0.41,
-          "motivacion": 0.55
+          "estres": 0.59,
+          "motivacion": 0.47
         }
       },
       {
-        "timestamp": "2026-02-05T12:21:00",
-        "dia": 2,
+        "timestamp": "2026-03-09T14:45:00",
+        "dia": 1,
         "microaccion": "meditación",
-        "efectividad": 4,
+        "efectividad": 2,
         "comodidad": 3,
         "energia": 1,
         "moodmap_previo": {
           "felicidad": 0.55,
-          "estres": 0.42,
-          "motivacion": 0.2
+          "estres": 0.9,
+          "motivacion": 0.53
         }
       },
       {
-        "timestamp": "2026-02-07T16:12:00",
-        "dia": 4,
-        "microaccion": "caminata",
-        "efectividad": 5,
-        "comodidad": 3,
-        "energia": 3,
-        "moodmap_previo": {
-          "felicidad": 0.31,
-          "estres": 0.72,
-          "motivacion": 0.32
-        }
-      },
-      {
-        "timestamp": "2026-02-07T20:02:00",
-        "dia": 4,
-        "microaccion": "té caliente",
-        "efectividad": 2,
-        "comodidad": 3,
-        "energia": 3,
-        "moodmap_previo": {
-          "felicidad": 0.3,
-          "estres": 0.43,
-          "motivacion": 0.38
-        }
-      },
-      {
-        "timestamp": "2026-02-07T14:22:00",
-        "dia": 4,
-        "microaccion": "estiramientos",
-        "efectividad": 2,
-        "comodidad": 4,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.35,
-          "estres": 0.67,
-          "motivacion": 0.57
-        }
-      },
-      {
-        "timestamp": "2026-02-08T14:13:00",
-        "dia": 5,
-        "microaccion": "té caliente",
-        "efectividad": 5,
-        "comodidad": 3,
-        "energia": 3,
-        "moodmap_previo": {
-          "felicidad": 0.5,
-          "estres": 0.42,
-          "motivacion": 0.38
-        }
-      },
-      {
-        "timestamp": "2026-02-08T14:32:00",
-        "dia": 5,
-        "microaccion": "música relajante",
-        "efectividad": 3,
-        "comodidad": 3,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.38,
-          "estres": 0.83,
-          "motivacion": 0.3
-        }
-      },
-      {
-        "timestamp": "2026-02-09T14:49:00",
-        "dia": 6,
+        "timestamp": "2026-03-10T16:14:00",
+        "dia": 2,
         "microaccion": "escribir gratitud",
-        "efectividad": 4,
+        "efectividad": 2,
         "comodidad": 5,
-        "energia": 1,
+        "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.37,
-          "estres": 0.74,
+          "felicidad": 0.66,
+          "estres": 0.58,
           "motivacion": 0.35
         }
       },
       {
-        "timestamp": "2026-02-10T11:29:00",
-        "dia": 7,
-        "microaccion": "llamar amigo",
-        "efectividad": 3,
-        "comodidad": 3,
+        "timestamp": "2026-03-10T21:57:00",
+        "dia": 2,
+        "microaccion": "música relajante",
+        "efectividad": 2,
+        "comodidad": 4,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.56,
+          "estres": 0.56,
+          "motivacion": 0.54
+        }
+      },
+      {
+        "timestamp": "2026-03-10T21:14:00",
+        "dia": 2,
+        "microaccion": "caminata",
+        "efectividad": 2,
+        "comodidad": 4,
+        "energia": 1,
+        "moodmap_previo": {
+          "felicidad": 0.63,
+          "estres": 0.72,
+          "motivacion": 0.58
+        }
+      },
+      {
+        "timestamp": "2026-03-12T14:34:00",
+        "dia": 4,
+        "microaccion": "baño relajante",
+        "efectividad": 4,
+        "comodidad": 5,
         "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.42,
+          "felicidad": 0.31,
+          "estres": 0.68,
+          "motivacion": 0.56
+        }
+      },
+      {
+        "timestamp": "2026-03-13T10:48:00",
+        "dia": 5,
+        "microaccion": "llamar amigo",
+        "efectividad": 4,
+        "comodidad": 5,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.36,
+          "estres": 0.84,
+          "motivacion": 0.3
+        }
+      },
+      {
+        "timestamp": "2026-03-14T11:28:00",
+        "dia": 6,
+        "microaccion": "estiramientos",
+        "efectividad": 3,
+        "comodidad": 5,
+        "energia": 1,
+        "moodmap_previo": {
+          "felicidad": 0.4,
+          "estres": 0.85,
+          "motivacion": 0.51
+        }
+      },
+      {
+        "timestamp": "2026-03-15T11:55:00",
+        "dia": 7,
+        "microaccion": "estiramientos",
+        "efectividad": 2,
+        "comodidad": 4,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.55,
           "estres": 0.8,
-          "motivacion": 0.4
+          "motivacion": 0.29
+        }
+      },
+      {
+        "timestamp": "2026-03-15T08:27:00",
+        "dia": 7,
+        "microaccion": "respiración profunda",
+        "efectividad": 5,
+        "comodidad": 5,
+        "energia": 2,
+        "moodmap_previo": {
+          "felicidad": 0.52,
+          "estres": 0.48,
+          "motivacion": 0.25
         }
       }
     ],
     "estadisticas": {
-      "total_registros_moodmap": 21,
-      "total_emociones_liberadas": 10,
-      "total_gratitudes": 7,
-      "total_feedbacks": 11,
-      "felicidad_promedio": 0.465,
-      "estres_promedio": 0.584,
-      "motivacion_promedio": 0.413,
-      "microaccion_mas_usada": "té caliente"
+      "total_registros_moodmap": 20,
+      "total_emociones_liberadas": 5,
+      "total_gratitudes": 3,
+      "total_feedbacks": 10,
+      "felicidad_promedio": 0.502,
+      "estres_promedio": 0.669,
+      "motivacion_promedio": 0.399,
+      "microaccion_mas_usada": "estiramientos"
     }
   },
   {
@@ -401,371 +336,417 @@
     "nombre": "Carlos",
     "moodmaps": [
       {
-        "timestamp": "2026-02-04T19:50:00",
+        "timestamp": "2026-03-09T12:32:00",
         "dia": 1,
-        "felicidad": 0.58,
-        "estres": 0.7,
-        "motivacion": 0.6
-      },
-      {
-        "timestamp": "2026-02-04T08:49:00",
-        "dia": 1,
-        "felicidad": 0.49,
-        "estres": 0.8,
-        "motivacion": 0.45
-      },
-      {
-        "timestamp": "2026-02-05T18:13:00",
-        "dia": 2,
-        "felicidad": 0.36,
-        "estres": 0.74,
-        "motivacion": 0.54
-      },
-      {
-        "timestamp": "2026-02-05T20:04:00",
-        "dia": 2,
-        "felicidad": 0.26,
-        "estres": 0.73,
-        "motivacion": 0.59
-      },
-      {
-        "timestamp": "2026-02-05T19:33:00",
-        "dia": 2,
-        "felicidad": 0.46,
-        "estres": 0.53,
-        "motivacion": 0.58
-      },
-      {
-        "timestamp": "2026-02-06T15:11:00",
-        "dia": 3,
-        "felicidad": 0.41,
-        "estres": 0.71,
-        "motivacion": 0.4
-      },
-      {
-        "timestamp": "2026-02-06T18:32:00",
-        "dia": 3,
-        "felicidad": 0.57,
-        "estres": 0.59,
-        "motivacion": 0.38
-      },
-      {
-        "timestamp": "2026-02-07T21:49:00",
-        "dia": 4,
-        "felicidad": 0.24,
+        "felicidad": 0.59,
         "estres": 0.62,
-        "motivacion": 0.43
+        "motivacion": 0.39
       },
       {
-        "timestamp": "2026-02-07T21:00:00",
-        "dia": 4,
+        "timestamp": "2026-03-09T16:03:00",
+        "dia": 1,
+        "felicidad": 0.59,
+        "estres": 0.79,
+        "motivacion": 0.62
+      },
+      {
+        "timestamp": "2026-03-09T08:57:00",
+        "dia": 1,
+        "felicidad": 0.29,
+        "estres": 0.69,
+        "motivacion": 0.67
+      },
+      {
+        "timestamp": "2026-03-10T17:59:00",
+        "dia": 2,
         "felicidad": 0.32,
-        "estres": 0.58,
-        "motivacion": 0.55
+        "estres": 0.54,
+        "motivacion": 0.56
       },
       {
-        "timestamp": "2026-02-08T20:38:00",
-        "dia": 5,
-        "felicidad": 0.38,
-        "estres": 0.78,
-        "motivacion": 0.43
-      },
-      {
-        "timestamp": "2026-02-08T10:33:00",
-        "dia": 5,
-        "felicidad": 0.42,
-        "estres": 0.73,
-        "motivacion": 0.49
-      },
-      {
-        "timestamp": "2026-02-08T20:25:00",
-        "dia": 5,
-        "felicidad": 0.37,
-        "estres": 0.73,
+        "timestamp": "2026-03-10T10:15:00",
+        "dia": 2,
+        "felicidad": 0.34,
+        "estres": 0.75,
         "motivacion": 0.64
       },
       {
-        "timestamp": "2026-02-08T10:46:00",
-        "dia": 5,
-        "felicidad": 0.36,
-        "estres": 0.54,
-        "motivacion": 0.57
-      },
-      {
-        "timestamp": "2026-02-09T17:49:00",
-        "dia": 6,
-        "felicidad": 0.53,
-        "estres": 0.58,
-        "motivacion": 0.41
-      },
-      {
-        "timestamp": "2026-02-09T09:37:00",
-        "dia": 6,
-        "felicidad": 0.35,
-        "estres": 0.53,
-        "motivacion": 0.35
-      },
-      {
-        "timestamp": "2026-02-09T16:12:00",
-        "dia": 6,
-        "felicidad": 0.24,
-        "estres": 0.8,
-        "motivacion": 0.65
-      },
-      {
-        "timestamp": "2026-02-09T08:03:00",
-        "dia": 6,
-        "felicidad": 0.48,
+        "timestamp": "2026-03-10T22:38:00",
+        "dia": 2,
+        "felicidad": 0.44,
         "estres": 0.74,
-        "motivacion": 0.54
-      },
-      {
-        "timestamp": "2026-02-10T20:49:00",
-        "dia": 7,
-        "felicidad": 0.31,
-        "estres": 0.65,
-        "motivacion": 0.68
-      },
-      {
-        "timestamp": "2026-02-10T18:27:00",
-        "dia": 7,
-        "felicidad": 0.58,
-        "estres": 0.57,
         "motivacion": 0.45
       },
       {
-        "timestamp": "2026-02-10T14:41:00",
-        "dia": 7,
-        "felicidad": 0.25,
-        "estres": 0.61,
+        "timestamp": "2026-03-10T18:14:00",
+        "dia": 2,
+        "felicidad": 0.37,
+        "estres": 0.69,
+        "motivacion": 0.45
+      },
+      {
+        "timestamp": "2026-03-11T20:28:00",
+        "dia": 3,
+        "felicidad": 0.28,
+        "estres": 0.69,
+        "motivacion": 0.4
+      },
+      {
+        "timestamp": "2026-03-11T16:51:00",
+        "dia": 3,
+        "felicidad": 0.57,
+        "estres": 0.66,
+        "motivacion": 0.56
+      },
+      {
+        "timestamp": "2026-03-11T10:30:00",
+        "dia": 3,
+        "felicidad": 0.37,
+        "estres": 0.79,
+        "motivacion": 0.58
+      },
+      {
+        "timestamp": "2026-03-12T17:38:00",
+        "dia": 4,
+        "felicidad": 0.57,
+        "estres": 0.65,
+        "motivacion": 0.7
+      },
+      {
+        "timestamp": "2026-03-12T13:49:00",
+        "dia": 4,
+        "felicidad": 0.57,
+        "estres": 0.69,
         "motivacion": 0.37
+      },
+      {
+        "timestamp": "2026-03-12T10:47:00",
+        "dia": 4,
+        "felicidad": 0.46,
+        "estres": 0.79,
+        "motivacion": 0.44
+      },
+      {
+        "timestamp": "2026-03-13T08:54:00",
+        "dia": 5,
+        "felicidad": 0.45,
+        "estres": 0.78,
+        "motivacion": 0.48
+      },
+      {
+        "timestamp": "2026-03-13T18:36:00",
+        "dia": 5,
+        "felicidad": 0.38,
+        "estres": 0.54,
+        "motivacion": 0.47
+      },
+      {
+        "timestamp": "2026-03-13T18:01:00",
+        "dia": 5,
+        "felicidad": 0.43,
+        "estres": 0.57,
+        "motivacion": 0.67
+      },
+      {
+        "timestamp": "2026-03-13T15:30:00",
+        "dia": 5,
+        "felicidad": 0.36,
+        "estres": 0.51,
+        "motivacion": 0.4
+      },
+      {
+        "timestamp": "2026-03-14T13:36:00",
+        "dia": 6,
+        "felicidad": 0.39,
+        "estres": 0.6,
+        "motivacion": 0.6
+      },
+      {
+        "timestamp": "2026-03-14T19:20:00",
+        "dia": 6,
+        "felicidad": 0.55,
+        "estres": 0.55,
+        "motivacion": 0.42
+      },
+      {
+        "timestamp": "2026-03-14T15:59:00",
+        "dia": 6,
+        "felicidad": 0.56,
+        "estres": 0.72,
+        "motivacion": 0.64
+      },
+      {
+        "timestamp": "2026-03-15T12:58:00",
+        "dia": 7,
+        "felicidad": 0.27,
+        "estres": 0.56,
+        "motivacion": 0.54
+      },
+      {
+        "timestamp": "2026-03-15T19:20:00",
+        "dia": 7,
+        "felicidad": 0.54,
+        "estres": 0.65,
+        "motivacion": 0.55
+      },
+      {
+        "timestamp": "2026-03-15T14:03:00",
+        "dia": 7,
+        "felicidad": 0.29,
+        "estres": 0.61,
+        "motivacion": 0.39
+      },
+      {
+        "timestamp": "2026-03-15T19:02:00",
+        "dia": 7,
+        "felicidad": 0.46,
+        "estres": 0.54,
+        "motivacion": 0.39
       }
     ],
     "emociones_liberadas": [
       {
-        "timestamp": "2026-02-05T23:43:00",
+        "timestamp": "2026-03-09T23:42:00",
+        "dia": 1,
+        "emocion": "presión"
+      },
+      {
+        "timestamp": "2026-03-10T20:16:00",
         "dia": 2,
         "emocion": "presión"
       },
       {
-        "timestamp": "2026-02-05T19:20:00",
+        "timestamp": "2026-03-10T23:30:00",
         "dia": 2,
+        "emocion": "presión"
+      },
+      {
+        "timestamp": "2026-03-11T21:58:00",
+        "dia": 3,
+        "emocion": "sobrecarga"
+      },
+      {
+        "timestamp": "2026-03-11T20:56:00",
+        "dia": 3,
+        "emocion": "sobrecarga"
+      },
+      {
+        "timestamp": "2026-03-11T22:32:00",
+        "dia": 3,
         "emocion": "agotamiento"
       },
       {
-        "timestamp": "2026-02-05T22:22:00",
-        "dia": 2,
+        "timestamp": "2026-03-13T21:48:00",
+        "dia": 5,
         "emocion": "presión"
       },
       {
-        "timestamp": "2026-02-07T20:29:00",
-        "dia": 4,
-        "emocion": "sobrecarga"
-      },
-      {
-        "timestamp": "2026-02-07T20:54:00",
-        "dia": 4,
-        "emocion": "sobrecarga"
-      },
-      {
-        "timestamp": "2026-02-08T20:24:00",
-        "dia": 5,
-        "emocion": "irritabilidad"
-      },
-      {
-        "timestamp": "2026-02-08T23:43:00",
+        "timestamp": "2026-03-13T20:08:00",
         "dia": 5,
         "emocion": "estrés laboral"
       },
       {
-        "timestamp": "2026-02-09T21:09:00",
-        "dia": 6,
-        "emocion": "agotamiento"
+        "timestamp": "2026-03-13T20:16:00",
+        "dia": 5,
+        "emocion": "sobrecarga"
       },
       {
-        "timestamp": "2026-02-09T23:59:00",
-        "dia": 6,
-        "emocion": "presión"
-      },
-      {
-        "timestamp": "2026-02-09T19:35:00",
-        "dia": 6,
+        "timestamp": "2026-03-15T22:29:00",
+        "dia": 7,
         "emocion": "presión"
       }
     ],
     "gratitudes": [
       {
-        "timestamp": "2026-02-04T23:07:00",
+        "timestamp": "2026-03-09T21:14:00",
         "dia": 1,
-        "gratitud": "ejercicio"
-      },
-      {
-        "timestamp": "2026-02-05T23:16:00",
-        "dia": 2,
-        "gratitud": "fin de semana"
-      },
-      {
-        "timestamp": "2026-02-08T21:00:00",
-        "dia": 5,
-        "gratitud": "trabajo estable"
-      },
-      {
-        "timestamp": "2026-02-08T22:40:00",
-        "dia": 5,
-        "gratitud": "fin de semana"
-      },
-      {
-        "timestamp": "2026-02-09T23:31:00",
-        "dia": 6,
         "gratitud": "tiempo en familia"
       },
       {
-        "timestamp": "2026-02-09T21:09:00",
-        "dia": 6,
+        "timestamp": "2026-03-10T20:22:00",
+        "dia": 2,
         "gratitud": "trabajo estable"
+      },
+      {
+        "timestamp": "2026-03-10T23:13:00",
+        "dia": 2,
+        "gratitud": "tiempo en familia"
+      },
+      {
+        "timestamp": "2026-03-11T20:34:00",
+        "dia": 3,
+        "gratitud": "tiempo en familia"
+      },
+      {
+        "timestamp": "2026-03-11T21:18:00",
+        "dia": 3,
+        "gratitud": "proyecto completado"
+      },
+      {
+        "timestamp": "2026-03-13T20:03:00",
+        "dia": 5,
+        "gratitud": "tiempo en familia"
+      },
+      {
+        "timestamp": "2026-03-15T22:40:00",
+        "dia": 7,
+        "gratitud": "proyecto completado"
       }
     ],
     "feedbacks": [
       {
-        "timestamp": "2026-02-04T19:50:00",
+        "timestamp": "2026-03-09T12:32:00",
         "dia": 1,
-        "microaccion": "escribir gratitud",
-        "efectividad": 2,
-        "comodidad": 3,
-        "energia": 1,
-        "moodmap_previo": {
-          "felicidad": 0.58,
-          "estres": 0.7,
-          "motivacion": 0.6
-        }
-      },
-      {
-        "timestamp": "2026-02-04T08:49:00",
-        "dia": 1,
-        "microaccion": "meditación",
-        "efectividad": 3,
+        "microaccion": "música relajante",
+        "efectividad": 5,
         "comodidad": 3,
         "energia": 2,
         "moodmap_previo": {
-          "felicidad": 0.49,
-          "estres": 0.8,
-          "motivacion": 0.45
+          "felicidad": 0.59,
+          "estres": 0.62,
+          "motivacion": 0.39
         }
       },
       {
-        "timestamp": "2026-02-05T19:33:00",
+        "timestamp": "2026-03-10T17:59:00",
         "dia": 2,
         "microaccion": "arte/dibujo",
-        "efectividad": 3,
-        "comodidad": 5,
+        "efectividad": 5,
+        "comodidad": 3,
         "energia": 2,
         "moodmap_previo": {
-          "felicidad": 0.46,
-          "estres": 0.53,
+          "felicidad": 0.32,
+          "estres": 0.54,
+          "motivacion": 0.56
+        }
+      },
+      {
+        "timestamp": "2026-03-11T20:28:00",
+        "dia": 3,
+        "microaccion": "lectura",
+        "efectividad": 5,
+        "comodidad": 3,
+        "energia": 2,
+        "moodmap_previo": {
+          "felicidad": 0.28,
+          "estres": 0.69,
+          "motivacion": 0.4
+        }
+      },
+      {
+        "timestamp": "2026-03-11T10:30:00",
+        "dia": 3,
+        "microaccion": "respiración profunda",
+        "efectividad": 2,
+        "comodidad": 3,
+        "energia": 2,
+        "moodmap_previo": {
+          "felicidad": 0.37,
+          "estres": 0.79,
           "motivacion": 0.58
         }
       },
       {
-        "timestamp": "2026-02-06T18:32:00",
-        "dia": 3,
-        "microaccion": "baño relajante",
-        "efectividad": 2,
-        "comodidad": 4,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.57,
-          "estres": 0.59,
-          "motivacion": 0.38
-        }
-      },
-      {
-        "timestamp": "2026-02-07T21:49:00",
+        "timestamp": "2026-03-12T17:38:00",
         "dia": 4,
-        "microaccion": "baño relajante",
+        "microaccion": "escribir gratitud",
         "efectividad": 3,
-        "comodidad": 5,
+        "comodidad": 3,
         "energia": 1,
         "moodmap_previo": {
-          "felicidad": 0.24,
-          "estres": 0.62,
-          "motivacion": 0.43
+          "felicidad": 0.57,
+          "estres": 0.65,
+          "motivacion": 0.7
         }
       },
       {
-        "timestamp": "2026-02-07T21:00:00",
+        "timestamp": "2026-03-12T13:49:00",
         "dia": 4,
-        "microaccion": "baño relajante",
+        "microaccion": "lectura",
+        "efectividad": 3,
+        "comodidad": 4,
+        "energia": 1,
+        "moodmap_previo": {
+          "felicidad": 0.57,
+          "estres": 0.69,
+          "motivacion": 0.37
+        }
+      },
+      {
+        "timestamp": "2026-03-13T18:36:00",
+        "dia": 5,
+        "microaccion": "té caliente",
         "efectividad": 5,
-        "comodidad": 5,
+        "comodidad": 4,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.38,
+          "estres": 0.54,
+          "motivacion": 0.47
+        }
+      },
+      {
+        "timestamp": "2026-03-13T18:01:00",
+        "dia": 5,
+        "microaccion": "llamar amigo",
+        "efectividad": 5,
+        "comodidad": 3,
+        "energia": 3,
+        "moodmap_previo": {
+          "felicidad": 0.43,
+          "estres": 0.57,
+          "motivacion": 0.67
+        }
+      },
+      {
+        "timestamp": "2026-03-14T13:36:00",
+        "dia": 6,
+        "microaccion": "ejercicio suave",
+        "efectividad": 5,
+        "comodidad": 3,
         "energia": 2,
         "moodmap_previo": {
-          "felicidad": 0.32,
-          "estres": 0.58,
-          "motivacion": 0.55
+          "felicidad": 0.39,
+          "estres": 0.6,
+          "motivacion": 0.6
         }
       },
       {
-        "timestamp": "2026-02-08T10:33:00",
-        "dia": 5,
-        "microaccion": "lectura",
-        "efectividad": 2,
+        "timestamp": "2026-03-15T12:58:00",
+        "dia": 7,
+        "microaccion": "ejercicio suave",
+        "efectividad": 3,
         "comodidad": 5,
         "energia": 4,
         "moodmap_previo": {
-          "felicidad": 0.42,
-          "estres": 0.73,
-          "motivacion": 0.49
+          "felicidad": 0.27,
+          "estres": 0.56,
+          "motivacion": 0.54
         }
       },
       {
-        "timestamp": "2026-02-09T17:49:00",
-        "dia": 6,
-        "microaccion": "ejercicio suave",
+        "timestamp": "2026-03-15T19:02:00",
+        "dia": 7,
+        "microaccion": "meditación",
         "efectividad": 2,
-        "comodidad": 5,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.53,
-          "estres": 0.58,
-          "motivacion": 0.41
-        }
-      },
-      {
-        "timestamp": "2026-02-09T09:37:00",
-        "dia": 6,
-        "microaccion": "arte/dibujo",
-        "efectividad": 3,
-        "comodidad": 5,
-        "energia": 3,
-        "moodmap_previo": {
-          "felicidad": 0.35,
-          "estres": 0.53,
-          "motivacion": 0.35
-        }
-      },
-      {
-        "timestamp": "2026-02-09T16:12:00",
-        "dia": 6,
-        "microaccion": "lectura",
-        "efectividad": 4,
         "comodidad": 4,
-        "energia": 3,
+        "energia": 4,
         "moodmap_previo": {
-          "felicidad": 0.24,
-          "estres": 0.8,
-          "motivacion": 0.65
+          "felicidad": 0.46,
+          "estres": 0.54,
+          "motivacion": 0.39
         }
       }
     ],
     "estadisticas": {
-      "total_registros_moodmap": 20,
+      "total_registros_moodmap": 24,
       "total_emociones_liberadas": 10,
-      "total_gratitudes": 6,
-      "total_feedbacks": 10,
-      "felicidad_promedio": 0.398,
-      "estres_promedio": 0.663,
-      "motivacion_promedio": 0.505,
-      "microaccion_mas_usada": "baño relajante"
+      "total_gratitudes": 7,
+      "total_feedbacks": 11,
+      "felicidad_promedio": 0.435,
+      "estres_promedio": 0.655,
+      "motivacion_promedio": 0.516,
+      "microaccion_mas_usada": "lectura"
     }
   },
   {
@@ -773,412 +754,431 @@
     "nombre": "Luna",
     "moodmaps": [
       {
-        "timestamp": "2026-02-04T13:26:00",
+        "timestamp": "2026-03-09T14:12:00",
         "dia": 1,
-        "felicidad": 0.41,
-        "estres": 0.31,
-        "motivacion": 0.68
-      },
-      {
-        "timestamp": "2026-02-04T08:54:00",
-        "dia": 1,
-        "felicidad": 0.8,
-        "estres": 0.38,
-        "motivacion": 0.52
-      },
-      {
-        "timestamp": "2026-02-04T14:08:00",
-        "dia": 1,
-        "felicidad": 0.52,
-        "estres": 0.27,
-        "motivacion": 0.64
-      },
-      {
-        "timestamp": "2026-02-05T14:32:00",
-        "dia": 2,
-        "felicidad": 0.45,
-        "estres": 0.41,
-        "motivacion": 0.86
-      },
-      {
-        "timestamp": "2026-02-05T10:55:00",
-        "dia": 2,
-        "felicidad": 0.79,
-        "estres": 0.14,
-        "motivacion": 0.75
-      },
-      {
-        "timestamp": "2026-02-05T09:46:00",
-        "dia": 2,
-        "felicidad": 0.66,
-        "estres": 0.27,
-        "motivacion": 0.57
-      },
-      {
-        "timestamp": "2026-02-05T16:33:00",
-        "dia": 2,
-        "felicidad": 0.69,
-        "estres": 0.15,
-        "motivacion": 0.64
-      },
-      {
-        "timestamp": "2026-02-06T18:40:00",
-        "dia": 3,
-        "felicidad": 0.69,
-        "estres": 0.17,
-        "motivacion": 0.51
-      },
-      {
-        "timestamp": "2026-02-06T13:18:00",
-        "dia": 3,
-        "felicidad": 0.77,
-        "estres": 0.49,
-        "motivacion": 0.59
-      },
-      {
-        "timestamp": "2026-02-07T09:44:00",
-        "dia": 4,
-        "felicidad": 0.51,
-        "estres": 0.25,
-        "motivacion": 0.73
-      },
-      {
-        "timestamp": "2026-02-07T15:59:00",
-        "dia": 4,
-        "felicidad": 0.67,
-        "estres": 0.45,
-        "motivacion": 0.86
-      },
-      {
-        "timestamp": "2026-02-08T21:05:00",
-        "dia": 5,
-        "felicidad": 0.79,
-        "estres": 0.43,
+        "felicidad": 0.74,
+        "estres": 0.35,
         "motivacion": 0.8
       },
       {
-        "timestamp": "2026-02-08T11:55:00",
-        "dia": 5,
-        "felicidad": 0.53,
+        "timestamp": "2026-03-09T10:38:00",
+        "dia": 1,
+        "felicidad": 0.79,
+        "estres": 0.13,
+        "motivacion": 0.51
+      },
+      {
+        "timestamp": "2026-03-09T15:47:00",
+        "dia": 1,
+        "felicidad": 0.52,
+        "estres": 0.27,
+        "motivacion": 0.89
+      },
+      {
+        "timestamp": "2026-03-10T18:21:00",
+        "dia": 2,
+        "felicidad": 0.66,
+        "estres": 0.44,
+        "motivacion": 0.65
+      },
+      {
+        "timestamp": "2026-03-10T17:51:00",
+        "dia": 2,
+        "felicidad": 0.65,
         "estres": 0.47,
+        "motivacion": 0.81
+      },
+      {
+        "timestamp": "2026-03-10T17:57:00",
+        "dia": 2,
+        "felicidad": 0.51,
+        "estres": 0.35,
+        "motivacion": 0.87
+      },
+      {
+        "timestamp": "2026-03-11T17:21:00",
+        "dia": 3,
+        "felicidad": 0.56,
+        "estres": 0.3,
+        "motivacion": 0.89
+      },
+      {
+        "timestamp": "2026-03-11T08:24:00",
+        "dia": 3,
+        "felicidad": 0.58,
+        "estres": 0.29,
+        "motivacion": 0.54
+      },
+      {
+        "timestamp": "2026-03-11T15:40:00",
+        "dia": 3,
+        "felicidad": 0.75,
+        "estres": 0.12,
+        "motivacion": 0.57
+      },
+      {
+        "timestamp": "2026-03-11T12:19:00",
+        "dia": 3,
+        "felicidad": 0.69,
+        "estres": 0.39,
+        "motivacion": 0.51
+      },
+      {
+        "timestamp": "2026-03-12T10:45:00",
+        "dia": 4,
+        "felicidad": 0.78,
+        "estres": 0.39,
+        "motivacion": 0.68
+      },
+      {
+        "timestamp": "2026-03-12T09:37:00",
+        "dia": 4,
+        "felicidad": 0.42,
+        "estres": 0.46,
         "motivacion": 0.72
       },
       {
-        "timestamp": "2026-02-09T17:37:00",
-        "dia": 6,
-        "felicidad": 0.76,
-        "estres": 0.27,
+        "timestamp": "2026-03-13T11:58:00",
+        "dia": 5,
+        "felicidad": 0.59,
+        "estres": 0.49,
+        "motivacion": 0.85
+      },
+      {
+        "timestamp": "2026-03-13T20:39:00",
+        "dia": 5,
+        "felicidad": 0.45,
+        "estres": 0.22,
         "motivacion": 0.83
       },
       {
-        "timestamp": "2026-02-09T08:49:00",
-        "dia": 6,
-        "felicidad": 0.72,
-        "estres": 0.37,
+        "timestamp": "2026-03-13T17:52:00",
+        "dia": 5,
+        "felicidad": 0.74,
+        "estres": 0.34,
         "motivacion": 0.59
       },
       {
-        "timestamp": "2026-02-09T16:26:00",
-        "dia": 6,
-        "felicidad": 0.76,
-        "estres": 0.26,
-        "motivacion": 0.63
-      },
-      {
-        "timestamp": "2026-02-10T08:02:00",
-        "dia": 7,
-        "felicidad": 0.49,
-        "estres": 0.12,
-        "motivacion": 0.76
-      },
-      {
-        "timestamp": "2026-02-10T11:17:00",
-        "dia": 7,
-        "felicidad": 0.5,
-        "estres": 0.16,
-        "motivacion": 0.59
-      },
-      {
-        "timestamp": "2026-02-10T12:30:00",
-        "dia": 7,
-        "felicidad": 0.67,
+        "timestamp": "2026-03-13T17:06:00",
+        "dia": 5,
+        "felicidad": 0.65,
         "estres": 0.15,
+        "motivacion": 0.89
+      },
+      {
+        "timestamp": "2026-03-14T19:31:00",
+        "dia": 6,
+        "felicidad": 0.65,
+        "estres": 0.3,
         "motivacion": 0.67
       },
       {
-        "timestamp": "2026-02-10T20:33:00",
+        "timestamp": "2026-03-14T16:29:00",
+        "dia": 6,
+        "felicidad": 0.77,
+        "estres": 0.36,
+        "motivacion": 0.77
+      },
+      {
+        "timestamp": "2026-03-14T19:47:00",
+        "dia": 6,
+        "felicidad": 0.73,
+        "estres": 0.45,
+        "motivacion": 0.84
+      },
+      {
+        "timestamp": "2026-03-15T09:06:00",
         "dia": 7,
-        "felicidad": 0.71,
-        "estres": 0.2,
-        "motivacion": 0.71
+        "felicidad": 0.58,
+        "estres": 0.32,
+        "motivacion": 0.69
+      },
+      {
+        "timestamp": "2026-03-15T12:31:00",
+        "dia": 7,
+        "felicidad": 0.51,
+        "estres": 0.17,
+        "motivacion": 0.8
+      },
+      {
+        "timestamp": "2026-03-15T14:13:00",
+        "dia": 7,
+        "felicidad": 0.64,
+        "estres": 0.4,
+        "motivacion": 0.55
+      },
+      {
+        "timestamp": "2026-03-15T08:22:00",
+        "dia": 7,
+        "felicidad": 0.53,
+        "estres": 0.15,
+        "motivacion": 0.73
       }
     ],
     "emociones_liberadas": [
       {
-        "timestamp": "2026-02-06T20:30:00",
-        "dia": 3,
-        "emocion": "dispersión"
-      },
-      {
-        "timestamp": "2026-02-06T22:56:00",
-        "dia": 3,
+        "timestamp": "2026-03-09T22:42:00",
+        "dia": 1,
         "emocion": "autocrítica"
       },
       {
-        "timestamp": "2026-02-07T20:36:00",
+        "timestamp": "2026-03-10T22:08:00",
+        "dia": 2,
+        "emocion": "dispersión"
+      },
+      {
+        "timestamp": "2026-03-10T23:27:00",
+        "dia": 2,
+        "emocion": "autocrítica"
+      },
+      {
+        "timestamp": "2026-03-10T20:16:00",
+        "dia": 2,
+        "emocion": "inseguridad"
+      },
+      {
+        "timestamp": "2026-03-12T20:40:00",
         "dia": 4,
-        "emocion": "autocrítica"
-      },
-      {
-        "timestamp": "2026-02-07T19:26:00",
-        "dia": 4,
         "emocion": "dispersión"
       },
       {
-        "timestamp": "2026-02-08T21:07:00",
-        "dia": 5,
-        "emocion": "autocrítica"
-      },
-      {
-        "timestamp": "2026-02-08T19:49:00",
+        "timestamp": "2026-03-13T22:25:00",
         "dia": 5,
         "emocion": "dispersión"
       },
       {
-        "timestamp": "2026-02-08T22:57:00",
-        "dia": 5,
-        "emocion": "autocrítica"
-      },
-      {
-        "timestamp": "2026-02-09T23:15:00",
+        "timestamp": "2026-03-14T23:10:00",
         "dia": 6,
         "emocion": "autocrítica"
       },
       {
-        "timestamp": "2026-02-10T21:48:00",
+        "timestamp": "2026-03-14T23:27:00",
+        "dia": 6,
+        "emocion": "autocrítica"
+      },
+      {
+        "timestamp": "2026-03-14T20:42:00",
+        "dia": 6,
+        "emocion": "dispersión"
+      },
+      {
+        "timestamp": "2026-03-15T20:01:00",
         "dia": 7,
         "emocion": "bloqueo creativo"
+      },
+      {
+        "timestamp": "2026-03-15T22:38:00",
+        "dia": 7,
+        "emocion": "inseguridad"
+      },
+      {
+        "timestamp": "2026-03-15T20:05:00",
+        "dia": 7,
+        "emocion": "dispersión"
       }
     ],
     "gratitudes": [
       {
-        "timestamp": "2026-02-05T22:16:00",
-        "dia": 2,
-        "gratitud": "exposición"
-      },
-      {
-        "timestamp": "2026-02-05T23:56:00",
-        "dia": 2,
-        "gratitud": "naturaleza"
-      },
-      {
-        "timestamp": "2026-02-06T20:30:00",
+        "timestamp": "2026-03-11T23:07:00",
         "dia": 3,
         "gratitud": "arte"
       },
       {
-        "timestamp": "2026-02-06T21:44:00",
+        "timestamp": "2026-03-11T22:39:00",
         "dia": 3,
-        "gratitud": "inspiración"
-      },
-      {
-        "timestamp": "2026-02-07T22:14:00",
-        "dia": 4,
         "gratitud": "exposición"
       },
       {
-        "timestamp": "2026-02-07T21:56:00",
+        "timestamp": "2026-03-12T22:36:00",
         "dia": 4,
         "gratitud": "arte"
       },
       {
-        "timestamp": "2026-02-08T23:25:00",
-        "dia": 5,
-        "gratitud": "colores"
-      },
-      {
-        "timestamp": "2026-02-09T22:38:00",
+        "timestamp": "2026-03-14T21:42:00",
         "dia": 6,
         "gratitud": "nueva idea"
-      },
-      {
-        "timestamp": "2026-02-09T20:44:00",
-        "dia": 6,
-        "gratitud": "colores"
-      },
-      {
-        "timestamp": "2026-02-10T22:35:00",
-        "dia": 7,
-        "gratitud": "colores"
       }
     ],
     "feedbacks": [
       {
-        "timestamp": "2026-02-04T13:26:00",
+        "timestamp": "2026-03-09T14:12:00",
         "dia": 1,
-        "microaccion": "música relajante",
-        "efectividad": 2,
+        "microaccion": "llamar amigo",
+        "efectividad": 3,
+        "comodidad": 5,
+        "energia": 1,
+        "moodmap_previo": {
+          "felicidad": 0.74,
+          "estres": 0.35,
+          "motivacion": 0.8
+        }
+      },
+      {
+        "timestamp": "2026-03-10T17:51:00",
+        "dia": 2,
+        "microaccion": "meditación",
+        "efectividad": 4,
         "comodidad": 4,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.65,
+          "estres": 0.47,
+          "motivacion": 0.81
+        }
+      },
+      {
+        "timestamp": "2026-03-10T17:57:00",
+        "dia": 2,
+        "microaccion": "respiración profunda",
+        "efectividad": 3,
+        "comodidad": 3,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.51,
+          "estres": 0.35,
+          "motivacion": 0.87
+        }
+      },
+      {
+        "timestamp": "2026-03-11T08:24:00",
+        "dia": 3,
+        "microaccion": "estiramientos",
+        "efectividad": 5,
+        "comodidad": 5,
         "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.41,
-          "estres": 0.31,
+          "felicidad": 0.58,
+          "estres": 0.29,
+          "motivacion": 0.54
+        }
+      },
+      {
+        "timestamp": "2026-03-11T12:19:00",
+        "dia": 3,
+        "microaccion": "meditación",
+        "efectividad": 5,
+        "comodidad": 5,
+        "energia": 2,
+        "moodmap_previo": {
+          "felicidad": 0.69,
+          "estres": 0.39,
+          "motivacion": 0.51
+        }
+      },
+      {
+        "timestamp": "2026-03-12T10:45:00",
+        "dia": 4,
+        "microaccion": "meditación",
+        "efectividad": 2,
+        "comodidad": 3,
+        "energia": 1,
+        "moodmap_previo": {
+          "felicidad": 0.78,
+          "estres": 0.39,
           "motivacion": 0.68
         }
       },
       {
-        "timestamp": "2026-02-04T08:54:00",
-        "dia": 1,
-        "microaccion": "escribir gratitud",
-        "efectividad": 4,
-        "comodidad": 4,
-        "energia": 4,
-        "moodmap_previo": {
-          "felicidad": 0.8,
-          "estres": 0.38,
-          "motivacion": 0.52
-        }
-      },
-      {
-        "timestamp": "2026-02-04T14:08:00",
-        "dia": 1,
-        "microaccion": "arte/dibujo",
-        "efectividad": 4,
-        "comodidad": 3,
-        "energia": 1,
-        "moodmap_previo": {
-          "felicidad": 0.52,
-          "estres": 0.27,
-          "motivacion": 0.64
-        }
-      },
-      {
-        "timestamp": "2026-02-05T14:32:00",
-        "dia": 2,
-        "microaccion": "arte/dibujo",
-        "efectividad": 3,
-        "comodidad": 3,
-        "energia": 4,
-        "moodmap_previo": {
-          "felicidad": 0.45,
-          "estres": 0.41,
-          "motivacion": 0.86
-        }
-      },
-      {
-        "timestamp": "2026-02-05T09:46:00",
-        "dia": 2,
-        "microaccion": "estiramientos",
-        "efectividad": 3,
-        "comodidad": 4,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.66,
-          "estres": 0.27,
-          "motivacion": 0.57
-        }
-      },
-      {
-        "timestamp": "2026-02-05T16:33:00",
-        "dia": 2,
-        "microaccion": "meditación",
-        "efectividad": 3,
-        "comodidad": 4,
-        "energia": 3,
-        "moodmap_previo": {
-          "felicidad": 0.69,
-          "estres": 0.15,
-          "motivacion": 0.64
-        }
-      },
-      {
-        "timestamp": "2026-02-08T11:55:00",
+        "timestamp": "2026-03-13T11:58:00",
         "dia": 5,
-        "microaccion": "estiramientos",
+        "microaccion": "música relajante",
         "efectividad": 4,
-        "comodidad": 3,
-        "energia": 2,
-        "moodmap_previo": {
-          "felicidad": 0.53,
-          "estres": 0.47,
-          "motivacion": 0.72
-        }
-      },
-      {
-        "timestamp": "2026-02-09T17:37:00",
-        "dia": 6,
-        "microaccion": "arte/dibujo",
-        "efectividad": 5,
         "comodidad": 4,
-        "energia": 3,
+        "energia": 4,
         "moodmap_previo": {
-          "felicidad": 0.76,
-          "estres": 0.27,
-          "motivacion": 0.83
+          "felicidad": 0.59,
+          "estres": 0.49,
+          "motivacion": 0.85
         }
       },
       {
-        "timestamp": "2026-02-09T08:49:00",
-        "dia": 6,
-        "microaccion": "arte/dibujo",
-        "efectividad": 2,
-        "comodidad": 5,
-        "energia": 2,
+        "timestamp": "2026-03-13T17:52:00",
+        "dia": 5,
+        "microaccion": "escribir gratitud",
+        "efectividad": 5,
+        "comodidad": 3,
+        "energia": 4,
         "moodmap_previo": {
-          "felicidad": 0.72,
-          "estres": 0.37,
+          "felicidad": 0.74,
+          "estres": 0.34,
           "motivacion": 0.59
         }
       },
       {
-        "timestamp": "2026-02-10T08:02:00",
-        "dia": 7,
-        "microaccion": "té caliente",
-        "efectividad": 3,
-        "comodidad": 4,
-        "energia": 4,
-        "moodmap_previo": {
-          "felicidad": 0.49,
-          "estres": 0.12,
-          "motivacion": 0.76
-        }
-      },
-      {
-        "timestamp": "2026-02-10T12:30:00",
-        "dia": 7,
-        "microaccion": "respiración profunda",
+        "timestamp": "2026-03-13T17:06:00",
+        "dia": 5,
+        "microaccion": "música relajante",
         "efectividad": 2,
         "comodidad": 5,
         "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.67,
+          "felicidad": 0.65,
           "estres": 0.15,
-          "motivacion": 0.67
+          "motivacion": 0.89
         }
       },
       {
-        "timestamp": "2026-02-10T20:33:00",
-        "dia": 7,
-        "microaccion": "té caliente",
+        "timestamp": "2026-03-14T16:29:00",
+        "dia": 6,
+        "microaccion": "meditación",
         "efectividad": 5,
         "comodidad": 3,
-        "energia": 1,
+        "energia": 3,
         "moodmap_previo": {
-          "felicidad": 0.71,
-          "estres": 0.2,
-          "motivacion": 0.71
+          "felicidad": 0.77,
+          "estres": 0.36,
+          "motivacion": 0.77
+        }
+      },
+      {
+        "timestamp": "2026-03-14T19:47:00",
+        "dia": 6,
+        "microaccion": "baño relajante",
+        "efectividad": 4,
+        "comodidad": 5,
+        "energia": 3,
+        "moodmap_previo": {
+          "felicidad": 0.73,
+          "estres": 0.45,
+          "motivacion": 0.84
+        }
+      },
+      {
+        "timestamp": "2026-03-15T12:31:00",
+        "dia": 7,
+        "microaccion": "escribir gratitud",
+        "efectividad": 4,
+        "comodidad": 4,
+        "energia": 2,
+        "moodmap_previo": {
+          "felicidad": 0.51,
+          "estres": 0.17,
+          "motivacion": 0.8
+        }
+      },
+      {
+        "timestamp": "2026-03-15T14:13:00",
+        "dia": 7,
+        "microaccion": "estiramientos",
+        "efectividad": 4,
+        "comodidad": 3,
+        "energia": 4,
+        "moodmap_previo": {
+          "felicidad": 0.64,
+          "estres": 0.4,
+          "motivacion": 0.55
         }
       }
     ],
     "estadisticas": {
-      "total_registros_moodmap": 20,
-      "total_emociones_liberadas": 9,
-      "total_gratitudes": 10,
-      "total_feedbacks": 12,
-      "felicidad_promedio": 0.645,
-      "estres_promedio": 0.286,
-      "motivacion_promedio": 0.682,
-      "microaccion_mas_usada": "arte/dibujo"
+      "total_registros_moodmap": 23,
+      "total_emociones_liberadas": 12,
+      "total_gratitudes": 4,
+      "total_feedbacks": 13,
+      "felicidad_promedio": 0.63,
+      "estres_promedio": 0.318,
+      "motivacion_promedio": 0.724,
+      "microaccion_mas_usada": "meditación"
     }
   }
 ]
